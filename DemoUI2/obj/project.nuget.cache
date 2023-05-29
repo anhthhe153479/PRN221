@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "yKqzaMhTn0wSh+/WQbm5Y0cuatn4s7tj1RHjzie8Agta8C5ntvzIYsz0c8JEnHVIrfvG13H78L1F6guY7V0T0Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Admin\\Máy tính\\PRN221\\DemoProject\\PRN221\\DemoUI2\\DemoUI2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\mahapps.metro.iconpacks.material\\4.11.0\\mahapps.metro.iconpacks.material.4.11.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "4SnDnJe6Pgp6zZc2CT9jNDRCK2UsoaW+HqXSxhRYPXux1lMhtU86dA7rfVsZiqVTtodGcNKbdtrB0WSgHlqX6g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Admin\\Máy tính\\PRN221\\DemoProject\\PRN221\\DemoProject.UI\\DemoProject.UI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\fontawesome.sharp\\6.3.0\\fontawesome.sharp.6.3.0.nupkg.sha512"
+  ],
+  "logs": []
+}
