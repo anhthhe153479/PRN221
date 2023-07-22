@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Máy tính\\DemoProject\\PRN221\\ProjectQLBH\\ProjectQLBH.csproj": {}
+    "C:\\Users\\Admin\\OneDrive\\Máy tính\\Documents\\GitHub\\PRN221\\ProjectQLBH\\ProjectQLBH.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Máy tính\\DemoProject\\PRN221\\ProjectQLBH\\ProjectQLBH.csproj": {
+    "C:\\Users\\Admin\\OneDrive\\Máy tính\\Documents\\GitHub\\PRN221\\ProjectQLBH\\ProjectQLBH.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Máy tính\\DemoProject\\PRN221\\ProjectQLBH\\ProjectQLBH.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\OneDrive\\Máy tính\\Documents\\GitHub\\PRN221\\ProjectQLBH\\ProjectQLBH.csproj",
         "projectName": "ProjectQLBH",
-        "projectPath": "C:\\Users\\Admin\\Máy tính\\DemoProject\\PRN221\\ProjectQLBH\\ProjectQLBH.csproj",
+        "projectPath": "C:\\Users\\Admin\\OneDrive\\Máy tính\\Documents\\GitHub\\PRN221\\ProjectQLBH\\ProjectQLBH.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Máy tính\\DemoProject\\PRN221\\ProjectQLBH\\obj\\",
+        "outputPath": "C:\\Users\\Admin\\OneDrive\\Máy tính\\Documents\\GitHub\\PRN221\\ProjectQLBH\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
