@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FormSignUp", "FormSignUp\Fo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoProject.UI", "DemoProject.UI\DemoProject.UI.csproj", "{EA97ADC1-75CA-4E9A-901F-F188DF589E21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoUI2", "DemoUI2\DemoUI2.csproj", "{F3940655-2952-4789-9CE4-2CA830DE6CD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoUI2", "DemoUI2\DemoUI2.csproj", "{F3940655-2952-4789-9CE4-2CA830DE6CD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectQLBH", "ProjectQLBH\ProjectQLBH.csproj", "{514FCEC3-962D-4AFB-AE25-5EDB56AB239B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{F3940655-2952-4789-9CE4-2CA830DE6CD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3940655-2952-4789-9CE4-2CA830DE6CD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3940655-2952-4789-9CE4-2CA830DE6CD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{514FCEC3-962D-4AFB-AE25-5EDB56AB239B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{514FCEC3-962D-4AFB-AE25-5EDB56AB239B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{514FCEC3-962D-4AFB-AE25-5EDB56AB239B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{514FCEC3-962D-4AFB-AE25-5EDB56AB239B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

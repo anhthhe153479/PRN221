@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "H/mybZ4QBE5ZBC3MwVk6oltHgbBneaQx/7Az1jc03vCnvZoFCCuS6ge2+u3vu/n6nMEacT6yyp4rTax479bhLA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Admin\\Máy tính\\DemoProject\\PRN221\\ProjectQLBH\\ProjectQLBH.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\mahapps.metro.iconpacks.material\\4.11.0\\mahapps.metro.iconpacks.material.4.11.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\materialdesigncolors\\2.1.4\\materialdesigncolors.2.1.4.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\materialdesignthemes\\4.9.0\\materialdesignthemes.4.9.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512"
+  ],
+  "logs": []
+}
