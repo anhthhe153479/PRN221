@@ -5,18 +5,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectQLBH"
-        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1080"
+        Title="MainWindow" Height="950" Width="1560"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        AllowsTransparency="True" Background="Transparent">
+        AllowsTransparency="True" Background="Transparent" WindowState="Maximized">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
     </Window.Resources>
 
-    <Border Background="#eff2f7" CornerRadius="30" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
-        <Grid>
+    <Border Background="#eff2f7" CornerRadius="30">
+        <Grid >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="*"/>
@@ -116,8 +116,24 @@
             </Grid>
 
             <!--main section-->
-            <Grid Grid.Column="1" Background="#F6F5F8" Name="RenderPages" >
-                <ContentControl x:Name="RenderPages1"/>
+            <Grid Grid.Column="1" Background="#F6F5F8" Name="RenderPages" Height="930" Width="1330"  >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Button Content="{materialDesign:PackIcon Kind=WindowClose}"
+                            ToolBar.OverflowMode="AsNeeded"
+                            Background="Red"
+                            ToolTip="Exit" 
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            Margin="0 5 5 0" Click="Button_Click_7" ></Button>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <ContentControl x:Name="RenderPages1" Margin="0 0 10 10"/>
+                </Grid>
+                
             </Grid>
         </Grid>
     </Border>

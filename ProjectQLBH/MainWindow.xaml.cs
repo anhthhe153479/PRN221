@@ -16,16 +16,6 @@ namespace ProjectQLBH
             InitializeComponent();
         }
 
-        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
-        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Login signUp = new Login();
@@ -68,6 +58,16 @@ namespace ProjectQLBH
         {
             RenderPages.Children.Clear();
             RenderPages.Children.Add(new Dashboard());
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Maximized;
+        }
+
+        private void Button_Click_7(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 
