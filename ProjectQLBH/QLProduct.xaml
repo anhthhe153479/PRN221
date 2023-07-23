@@ -9,6 +9,8 @@
         Width="1100"
         Name="Product"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        DataContext="{StaticResource ProductVM}"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"     
         >
 
 
@@ -90,14 +92,16 @@
                                      Background="Transparent"
                                      FontFamily="Sitka Subheading"
                                      FontWeight="Bold"
-                                     VerticalAlignment="Center"
-                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                     VerticalAlignment="Center" Text="{Binding ProductName , UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
+                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                     />
                             <TextBox x:Name="tbStatus" Width="280"
                                      FontSize="15"
                                      Background="Transparent"
                                      FontFamily="Sitka Subheading"
                                      FontWeight="Bold"
                                      VerticalAlignment="Center"
+                                     Text="{Binding Status}"
                                      materialDesign:HintAssist.Hint="Status"
                                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                             <DatePicker x:Name="dpdateAdd"
@@ -111,9 +115,11 @@
                         <WrapPanel Margin="0,5,0,-5">
                             <TextBox x:Name="tbImage" Width="227"
                                      IsReadOnly="True"
+                                     Text="{Binding Image}"
                                      materialDesign:HintAssist.Hint="Image"
                                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                            <Button x:Name="btnFileImage" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" Margin="70 0 0 0" 
+                            <Button x:Name="btnFileImage"  Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+                                    Command="{Binding ChooseFileCommand}" Margin="70 0 0 0" 
                                     >
                                 <materialDesign:PackIcon Kind="Folder" />
                             </Button>
@@ -194,20 +200,26 @@
                               SelectedItem="{Binding SelectedItem,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                               materialDesign:HintAssist.Hint="Choose"
                               Style="{StaticResource MaterialDesignOutlinedComboBox}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding SelectedItemChangedCommand}"
+                                                       CommandParameter="{Binding ElementName=ComboBox}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                     </ComboBox>
                     <Button x:Name="btnSearch" Margin="5"
-                            Command="{Binding SearchCommand}" Style="{StaticResource mainbutton}" Width="80" Click="ButtonSearch_Click"> 
+                            Command="{Binding SearchCommand}" Style="{StaticResource mainbutton}" Width="80" > 
                         <materialDesign:PackIcon Kind="Magnify" />
                     </Button>
                     <Button x:Name="btnAdd" Content="Add"
                             Command="{Binding AddCommand}" Style="{StaticResource mainbutton}" Width="80"
-                            Margin="5" Click="btnAdd_Click"></Button>
+                            Margin="5"></Button>
                     <Button x:Name="btnDelete" Content="Delete"
                             Command="{Binding DeleteCommand}" Style="{StaticResource mainbutton}" Width="80"
-                            Margin="5" Click="btnDelete_Click"></Button>
+                            Margin="5" ></Button>
                     <Button x:Name="btnUpdate" Content="Update"
                             Command="{Binding UpdateCommand}" Style="{StaticResource mainbutton}" Width="80"
-                            Margin="5" Click="btnUpdate_Click"></Button>
+                            Margin="5" ></Button>
 
                 </WrapPanel>
             </materialDesign:Card>
@@ -215,7 +227,7 @@
             <materialDesign:Card Grid.Row="3"
                                  Margin="0"
                                  VerticalAlignment="Center">
-                <ListView x:Name="ProductListView" SelectedItem="ListView_SelectedItem" SelectionChanged="lvContent_SelectionChanged" 
+                <ListView ItemsSource="{Binding Products}" SelectedItem="{Binding Product,Mode=OneWayToSource}" 
                           Width="Auto"
                           Height="500"
                           >

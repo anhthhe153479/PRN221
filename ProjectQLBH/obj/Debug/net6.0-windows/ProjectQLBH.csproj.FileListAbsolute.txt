@@ -132,3 +132,6 @@ C:\Users\Admin\OneDrive\Máy tính\Documents\GitHub\PRN221\ProjectQLBH\bin\Debug
 C:\Users\Admin\OneDrive\Máy tính\Documents\GitHub\PRN221\ProjectQLBH\bin\Debug\net6.0-windows\Core.pdb
 C:\Users\Admin\OneDrive\Máy tính\Documents\GitHub\PRN221\ProjectQLBH\bin\Debug\net6.0-windows\Humanizer.dll
 C:\Users\Admin\OneDrive\Máy tính\Documents\GitHub\PRN221\ProjectQLBH\bin\Debug\net6.0-windows\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Admin\OneDrive\Máy tính\Documents\GitHub\PRN221\ProjectQLBH\bin\Debug\net6.0-windows\DocumentFormat.OpenXml.dll
+C:\Users\Admin\OneDrive\Máy tính\Documents\GitHub\PRN221\ProjectQLBH\obj\Debug\net6.0-windows\ResourceXAML\MainResource.baml
+C:\Users\Admin\OneDrive\Máy tính\Documents\GitHub\PRN221\ProjectQLBH\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
