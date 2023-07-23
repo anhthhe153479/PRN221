@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\Admin\OneDrive\Máy tính\Documents\GitHub\PRN221\ProjectQLBH\App.xaml
-11106687613
+12753962809
 
-24-1094352769
+25165645415
 229197249396
-Dashboard.xaml;Login.xaml;MainWindow.xaml;QLCustomer.xaml;QLEmployee.xaml;QLKho.xaml;QLOrders.xaml;QLProduct.xaml;QLSuplier.xaml;ResourceXAML\MainResource.xaml;SignUp.xaml;
+CategoryWindow.xaml;Dashboard.xaml;Login.xaml;MainWindow.xaml;QLCustomer.xaml;QLEmployee.xaml;QLKho.xaml;QLOrders.xaml;QLProduct.xaml;QLSuplier.xaml;ResourceXAML\MainResource.xaml;SignUp.xaml;
 
 True
 

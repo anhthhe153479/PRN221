@@ -6,166 +6,289 @@
       xmlns:local="clr-namespace:ProjectQLBH"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+        Height="850"
+        Width="1100"
+      DataContext="{StaticResource ListOrderVM}"
       >
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="6.9*"/>
+            <RowDefinition Height="4*"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Margin="0 0 0 50">
-            <Label Content="Product"
-                   Grid.ColumnSpan="2"
-                   FontFamily="Sitka Subheading"
-                   FontSize="22"
-                   Padding="0"
-                   FontWeight="Bold"
-                   VerticalAlignment="Top"
-                   HorizontalAlignment="Center" />
-            <Button Grid.Column="1"
-                    Grid.Row="0"
-                    Height="20"
-                    Width="50"
-                    Content="IMPORT"
-                    FontWeight="Bold"
-                    Foreground="White"
-                    FontSize="9"
-                    Padding="0"
-                    Margin="0,0,20,0"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Background="ForestGreen"
-                    FontFamily="Sitka Subheading"
-                    Style="{StaticResource MaterialDesignRaisedButton}">
-            </Button>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <!--Tiêu đề-->
+        <Label Content="DANH SÁCH HÓA ĐƠN" Grid.ColumnSpan="2"
+               FontFamily="Sitka Subheading"
+               FontSize="22"
+               Padding="0"
+               FontWeight="Bold"
+               VerticalAlignment="Top"
+               HorizontalAlignment="Center"/>
+
+        <!--Danh sách loại sản phẩm-->
+        <ListView Name="listBill" Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding ListBills}" SelectedItem="{Binding SelectedItem,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                  FontFamily="Sitka Subheading"
+                  FontSize="13"
+                  Margin="62,29,0,10"
+                  Foreground="Black"
+                  HorizontalAlignment="Left" Width="1025">
+
+            <!--Thiết kế các cột-->
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Ngày tạo"
+                                            Width="200"
+                                            DisplayMemberBinding="{Binding Date}"></GridViewColumn>
+                    <GridViewColumn Header="Tên khách hàng"
+                                            Width="200"
+                                            DisplayMemberBinding="{Binding Name}"></GridViewColumn>
+                    <GridViewColumn Header="Mã SP"
+                                            Width="200"
+                                            DisplayMemberBinding="{Binding ProductId}"></GridViewColumn>
+                    <GridViewColumn Header="Giá bán"
+                                            Width="200"
+                                            DisplayMemberBinding="{Binding Phone}"></GridViewColumn>
+                    <GridViewColumn Header="tình trạng"
+                                            Width="200"
+                                            DisplayMemberBinding="{Binding Status}"></GridViewColumn>
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <!--Số lượng-->
+        <TextBox Grid.Row="2" Grid.Column="1" Width="80" Margin="15,45,0,0" materialDesign:HintAssist.Hint="Số lượng" FontSize="15" Background="Transparent" 
+                 FontFamily="Sitka Subheading" FontWeight="Bold" VerticalAlignment="Top" BorderThickness="0,0,0,0.5" HorizontalAlignment="Left" IsReadOnly="True" 
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                 Text="{Binding Quanlity}"
+                 />
+
+        <!--Được tặng-->
+        <TextBox Grid.Row="2" Grid.Column="1"  Width="80" Margin="115,45,0,0" materialDesign:HintAssist.Hint="Được tặng" FontSize="15" Background="Transparent" 
+                 FontFamily="Sitka Subheading" FontWeight="Bold" BorderThickness="0,0,0,0.5" VerticalAlignment="Top" HorizontalAlignment="Left" IsReadOnly="True"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                 Text="{Binding Give}"
+        />
+
+        <!--Giá gốc-->
+        <TextBox Grid.Row="2" Grid.Column="1"
+                 Width="80"
+                 Margin="215,45,0,0"
+                 materialDesign:HintAssist.Hint="Giá gốc (₫)"
+                 FontSize="15"
+                 BorderThickness="0,0,0,0.5"
+                 Background="Transparent"
+                 FontFamily="Sitka Subheading"
+                 FontWeight="Bold"
+                 VerticalAlignment="Top"
+                 HorizontalAlignment="Left"
+                 IsReadOnly="True"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                 Text="{Binding OldPrice}"/>
+
+        <!--Giá bán-->
+        <TextBox Grid.Row="2" Grid.Column="1"
+                 Width="80"
+                 Margin="315,45,0,0"
+                 materialDesign:HintAssist.Hint="Giá bán (₫)"
+                 FontSize="15"
+                 BorderThickness="0,0,0,0.5"
+                 Background="Transparent"
+                 FontFamily="Sitka Subheading"
+                 FontWeight="Bold"
+                 VerticalAlignment="Top"
+                 HorizontalAlignment="Left"
+                 IsReadOnly="True"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                 Text="{Binding NewPrice}"/>
+
+        <!--SDT-->
+        <TextBox Grid.Row="2" Grid.Column="1"
+                 Width="125"
+                 Margin="15,0,0,0"
+                 materialDesign:HintAssist.Hint="SDT"
+                 FontSize="15"
+                 BorderThickness="0,0,0,0.5"
+                 Background="Transparent"
+                 FontFamily="Sitka Subheading"
+                 FontWeight="Bold"
+                 VerticalAlignment="Top"
+                 HorizontalAlignment="Left"
+                 IsReadOnly="True"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                 Text="{Binding Phone}"/>
+
+        <!--Khuyến mãi đã áp dụng-->
+        <TextBox Grid.Row="2" Grid.Column="1"
+                 Width="230"
+                 Margin="165,0,0,0"
+                 BorderThickness="0,0,0,0.5"
+                 materialDesign:HintAssist.Hint="Khuyến mãi đã áp dụng"
+                 FontSize="15"
+                 Background="Transparent"
+                 FontFamily="Sitka Subheading"
+                 FontWeight="Bold"
+                 VerticalAlignment="Top"
+                 HorizontalAlignment="Left"
+                 IsReadOnly="True"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                 Text="{Binding disevent}"/>
+
+        <!--Địa chỉ nhận hàng-->
+        <TextBox Grid.Row="2" Grid.Column="0"
+                 Margin="15,0,35,20"
+                 FontSize="15"
+                 FontFamily="Sitka Subheading"
+                 TextWrapping="Wrap"
+                 TextAlignment="Left"
+                 FontWeight="Bold"
+                 VerticalAlignment="Top"
+                 VerticalScrollBarVisibility="Auto"
+                 IsReadOnly="True"
+                 BorderThickness="0,0,0,0.5"
+                 materialDesign:HintAssist.Hint="Địa chỉ nhận hàng"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                 Text="{Binding address, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+        </TextBox>
+
+        <!--Số tiền cọc đã chuyển khoản-->
+        <TextBox Grid.Row="2"
+                 Width="95"
+                 FontSize="15"
+                 BorderThickness="0,0,0,0.5"
+                 Background="Transparent"
+                 FontFamily="Sitka Subheading"
+                 VerticalAlignment="Top"
+                 HorizontalAlignment="Left"
+                 Margin="15,45,0,0"
+                 FontWeight="Bold"
+                 materialDesign:HintAssist.Hint="Tiền cọc (₫)"
+                 IsReadOnly="True"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                 Text="{Binding editDeposit}"/>
+
+        <!--Phí ship-->
+        <TextBox Grid.Row="2"
+                 Width="95"
+                 BorderThickness="0,0,0,0.5"
+                 FontSize="15"
+                 Background="Transparent"
+                 FontFamily="Sitka Subheading"
+                 VerticalAlignment="Top"
+                 HorizontalAlignment="Center"
+                 Margin="0,45,15,0"
+                 FontWeight="Bold"
+                 materialDesign:HintAssist.Hint="Phí ship (₫)"
+                 IsReadOnly="True"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                 Text="{Binding Shipcost}" />
+
+        <!--Số tiền sẽ thu-->
+        <TextBox Grid.Row="2"
+                 Width="95"
+                 FontSize="15"
+                 BorderThickness="0,0,0,0.5"
+                 Background="Transparent"
+                 FontFamily="Sitka Subheading"
+                 VerticalAlignment="Top"
+                 HorizontalAlignment="Right"
+                 Margin="0,45,35,0"
+                 FontWeight="Bold"
+                 materialDesign:HintAssist.Hint="Sẽ thu (₫)"
+                 IsReadOnly="True"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                 Text="{Binding editMoneyWillGet}"/>
+
+        <!--Button Hoàn thành-->
+        <Button Grid.Row="2" Grid.Column="1"
+                Width="100" Content="Hoàn thành"
+                FontWeight="Bold"
+                Foreground="White"
+                FontSize="15"
+                Padding="0"
+                Margin="230,0,220,111"
+                VerticalAlignment="Bottom"
+                Background="ForestGreen"
+                FontFamily="Sitka Subheading"
+                IsEnabled="{Binding btnstatus}"
+                Command="{Binding Donecommand}"
+                Style="{StaticResource MaterialDesignRaisedButton}">
+        </Button>
+
+        <!--Button Hủy đơn-->
+        <Button Grid.Column="1" Grid.Row="2"
+                Width="80" Content="Hủy đơn"
+                FontWeight="Bold"
+                Foreground="White"
+                FontSize="15"
+                Padding="0"
+                Margin="368,0,102,111"
+                VerticalAlignment="Bottom"
+                Background="ForestGreen"
+                FontFamily="Sitka Subheading"
+                IsEnabled="{Binding btnstatus}"
+                 Command="{Binding Cancelcommand}"
+                Style="{StaticResource MaterialDesignRaisedButton}">
+        </Button>
+
+        <!--Button Xem sản phẩm-->
+        <Button Grid.Column="1" Grid.Row="2"
+                Width="80" Content="Xem SP"
+                FontWeight="Bold"
+                Foreground="White"
+                FontSize="15"
+                Padding="0"
+                Margin="131,0,339,111"
+                VerticalAlignment="Bottom"
+                Background="ForestGreen"
+                FontFamily="Sitka Subheading"
+                Command="{Binding Viewcommand}"
+                Style="{StaticResource MaterialDesignRaisedButton}">
+        </Button>
+
+        <!--Bộ lọc-->
+        <ComboBox Width="256"
+                  Grid.Column="1"
+                  Padding="2"
+                  FontSize="15"
+                  Margin="295,5,24,0"
+                  FontStyle="Italic"
+                  BorderThickness="0,0,0,0"
+                              x:Name="ComboBox"
+                              ItemsSource="{Binding ComboItems}"
+                              SelectedItem="{Binding SelectedStatus,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                              materialDesign:HintAssist.Hint="Xem đơn Hoàn Thành"
+                              Style="{StaticResource MaterialDesignOutlinedComboBox}" Grid.Row="1" VerticalAlignment="Top">
+            <!--<i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding SelectedItemChangedCommand}"
+                                                  CommandParameter="{Binding ElementName=ComboBox}"     
+                                                       />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>-->
+        </ComboBox>
 
 
-            <Button Grid.Row="0"
-                    Height="20"
-                    Width="50"
-                    Content="EXPORT"
-                    FontWeight="Bold"
-                    Foreground="White"
-                    Padding="0"
-                    FontSize="9"
-                    Margin="0,0,75,8"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Bottom"
-                    Background="ForestGreen"
-                    FontFamily="Sitka Subheading"
-                    Style="{StaticResource MaterialDesignRaisedButton}" />
-        </Grid>
-        <Grid Grid.Row="1">
-            <WrapPanel HorizontalAlignment="Center" x:Name="ProductListView">
-                <Border BorderBrush="White" BorderThickness="5" Margin="20 0" CornerRadius="15">
-                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth0" UniformCornerRadius="15" BorderThickness="5"
-                         BorderBrush="White" Width="110" Height="130" Background="#F6F6F8">
-                        <StackPanel Margin="10">
-                            <Image Width="50"  Height="50" Source="{Binding Image}" />
-                            <TextBlock FontSize="12" Text="{Binding ProductName}" />
-                            <materialDesign:PackIcon Kind="EllipsisHorizontal" HorizontalAlignment="Right" />
-                        </StackPanel>
-                    </materialDesign:Card>
-                </Border>
-                <Border BorderBrush="White" BorderThickness="5" Margin="20 0" CornerRadius="15">
-                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth0" UniformCornerRadius="15" BorderThickness="5"
-                         BorderBrush="White" Width="110" Height="130" Background="#F6F6F8">
-                        <StackPanel Margin="10">
-                            <materialDesign:PackIcon Kind="Instagram">
-                                <materialDesign:PackIcon.Foreground>
-                                    <LinearGradientBrush StartPoint="1,0" EndPoint="0.5,1">
-                                        <GradientStop Color="#912A73" Offset="0" />
-                                        <GradientStop Color="#FA8E22" Offset="1" />
-                                    </LinearGradientBrush>
-                                </materialDesign:PackIcon.Foreground>
-                            </materialDesign:PackIcon>
-                            <TextBlock FontWeight="SemiBold" FontSize="25" Text="690K" Margin="0 10 0 0" />
-                            <TextBlock FontSize="12" Text="Followers" />
-                            <materialDesign:PackIcon Kind="EllipsisHorizontal" HorizontalAlignment="Right" />
-                        </StackPanel>
-                    </materialDesign:Card>
-                </Border>
-                <Border BorderBrush="White" BorderThickness="5" Margin="20 0" CornerRadius="15">
-                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth0" UniformCornerRadius="15" BorderThickness="5"
-                         BorderBrush="White" Width="110" Height="130" Background="#F6F6F8">
-                        <StackPanel Margin="10">
-                            <materialDesign:PackIcon Kind="Youtube" Foreground="Red" />
-                            <TextBlock FontWeight="SemiBold" FontSize="25" Text="2.3M" Margin="0 10 0 0" />
-                            <TextBlock FontSize="12" Text="Followers" />
-                            <materialDesign:PackIcon Kind="EllipsisHorizontal" HorizontalAlignment="Right" />
-                        </StackPanel>
-                    </materialDesign:Card>
-                </Border>
-                <Border BorderBrush="White" BorderThickness="5" Margin="20 0" CornerRadius="15">
-                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth0" UniformCornerRadius="15" BorderThickness="5"
-                         BorderBrush="White" Width="110" Height="130" Background="#F6F6F8">
-                        <StackPanel Margin="10">
-                            <materialDesign:PackIcon Kind="Facebook" Foreground="#29A3EC" />
-                            <TextBlock FontWeight="SemiBold" FontSize="25" Text="60K" Margin="0 10 0 0" />
-                            <TextBlock FontSize="12" Text="Followers" />
-                            <materialDesign:PackIcon Kind="EllipsisHorizontal" HorizontalAlignment="Right" />
-                        </StackPanel>
-                    </materialDesign:Card>
-                </Border>
-            </WrapPanel>
 
-        </Grid>
-        <Grid Grid.Row="2">
-            <WrapPanel HorizontalAlignment="Center">
-                <Border BorderBrush="White" BorderThickness="5" Margin="20 0" CornerRadius="15">
-                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth0" UniformCornerRadius="15" BorderThickness="5"
-                         BorderBrush="White" Width="110" Height="130" Background="#F6F6F8">
-                        <StackPanel Margin="10">
-                            <materialDesign:PackIcon Kind="Twitter" Foreground="#29A3EC" />
-                            <TextBlock FontWeight="SemiBold" FontSize="25" Text="280K" Margin="0 10 0 0" />
-                            <TextBlock FontSize="12" Text="Followers" />
-                            <materialDesign:PackIcon Kind="EllipsisHorizontal" HorizontalAlignment="Right" />
-                        </StackPanel>
-                    </materialDesign:Card>
-                </Border>
-                <Border BorderBrush="White" BorderThickness="5" Margin="20 0" CornerRadius="15">
-                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth0" UniformCornerRadius="15" BorderThickness="5"
-                         BorderBrush="White" Width="110" Height="130" Background="#F6F6F8">
-                        <StackPanel Margin="10">
-                            <materialDesign:PackIcon Kind="Instagram">
-                                <materialDesign:PackIcon.Foreground>
-                                    <LinearGradientBrush StartPoint="1,0" EndPoint="0.5,1">
-                                        <GradientStop Color="#912A73" Offset="0" />
-                                        <GradientStop Color="#FA8E22" Offset="1" />
-                                    </LinearGradientBrush>
-                                </materialDesign:PackIcon.Foreground>
-                            </materialDesign:PackIcon>
-                            <TextBlock FontWeight="SemiBold" FontSize="25" Text="690K" Margin="0 10 0 0" />
-                            <TextBlock FontSize="12" Text="Followers" />
-                            <materialDesign:PackIcon Kind="EllipsisHorizontal" HorizontalAlignment="Right" />
-                        </StackPanel>
-                    </materialDesign:Card>
-                </Border>
-                <Border BorderBrush="White" BorderThickness="5" Margin="20 0" CornerRadius="15">
-                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth0" UniformCornerRadius="15" BorderThickness="5"
-                         BorderBrush="White" Width="110" Height="130" Background="#F6F6F8">
-                        <StackPanel Margin="10">
-                            <materialDesign:PackIcon Kind="Youtube" Foreground="Red" />
-                            <TextBlock FontWeight="SemiBold" FontSize="25" Text="2.3M" Margin="0 10 0 0" />
-                            <TextBlock FontSize="12" Text="Followers" />
-                            <materialDesign:PackIcon Kind="EllipsisHorizontal" HorizontalAlignment="Right" />
-                        </StackPanel>
-                    </materialDesign:Card>
-                </Border>
-                <Border BorderBrush="White" BorderThickness="5" Margin="20 0" CornerRadius="15">
-                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth0" UniformCornerRadius="15" BorderThickness="5"
-                         BorderBrush="White" Width="110" Height="130" Background="#F6F6F8">
-                        <StackPanel Margin="10">
-                            <materialDesign:PackIcon Kind="Facebook" Foreground="#29A3EC" />
-                            <TextBlock FontWeight="SemiBold" FontSize="25" Text="60K" Margin="0 10 0 0" />
-                            <TextBlock FontSize="12" Text="Followers" />
-                            <materialDesign:PackIcon Kind="EllipsisHorizontal" HorizontalAlignment="Right" />
-                        </StackPanel>
-                    </materialDesign:Card>
-                </Border>
-            </WrapPanel>
+        <!--Progressbar loading-->
+        <ProgressBar Grid.Row="1" Grid.ColumnSpan="2"
+                     Width="25" Height="25"
+                     Style="{StaticResource MaterialDesignCircularProgressBar}"
+                     x:Name="ProgressBar">
+            <ProgressBar.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="Value" From="0" To="100" Duration="0:0:1" RepeatBehavior="Forever"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </ProgressBar.Triggers>
+        </ProgressBar>
 
-        </Grid>
     </Grid>
 </UserControl>

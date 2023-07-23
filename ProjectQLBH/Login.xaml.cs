@@ -31,7 +31,7 @@ namespace ProjectQLBH
 
         private void txtEmail_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtEmail.Text) && textEmail.Text.Length > 0)
+            if (!string.IsNullOrEmpty(textEmail.Text) && textEmail.Text.Length > 0)
             {
                 textEmail.Visibility = Visibility.Collapsed;
             }

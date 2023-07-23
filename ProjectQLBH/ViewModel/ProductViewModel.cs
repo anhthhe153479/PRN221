@@ -248,9 +248,8 @@ namespace ProjectQLBH.ViewModel
             });
             LoadCategoryWindowCommand = new ReplayCommand<Window>((p) => { return true; }, (p) =>
             {
-                p.Close();
-                //QLSuplier categoryWindow = new QLSuplier();
-                //categoryWindow.Show();
+                CategoryWindow categoryWindow = new CategoryWindow();
+                categoryWindow.ShowDialog();
             });
             ExportExcelCommand = new ReplayCommand<Object>((p) => { return true; }, (p) =>
             {
