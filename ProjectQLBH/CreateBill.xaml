@@ -1,12 +1,368 @@
 ﻿<Window x:Class="ProjectQLBH.CreateBill"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ProjectQLBH"
-        mc:Ignorable="d"
-        Title="CreateBill" Height="450" Width="800">
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProjectQLBH"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1300"
+      Title="Create Bill" 
+      DataContext="{StaticResource CreateBillViewVM}"
+        >
+
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
+            <Label Content="TẠO ĐƠN HÀNG MỚI"
+               FontFamily="Sitka Subheading"
+               Height="25"
+               FontSize="22"
+               Padding="0"
+               FontWeight="Bold"
+               VerticalAlignment="Top"
+               Name="Title"
+               HorizontalAlignment="Center" Grid.Column="1"/>
+        </Grid>
+
+        <!--Tiêu đề-->
+
+
+        <!--Tên khách hàng-->
+        <TextBox Grid.Row="1"
+                 materialDesign:HintAssist.Hint="Tên khách hàng"
+                 Width="220"
+                 FontSize="15"
+                 Background="Transparent"
+                 FontFamily="Sitka Subheading"
+                 FontWeight="Bold"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                 Name="editCustomerName"
+                 Text="{Binding CustomerName}" Margin="57,51,56,0"
+                 />
+        <!--SDT-->
+        <TextBox Grid.Row="2"
+                 materialDesign:HintAssist.Hint="SDT"
+                 Width="220"
+                 FontSize="15"
+                 Background="Transparent"
+                 FontFamily="Sitka Subheading"
+                 FontWeight="Bold"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                 Text="{Binding Phone}"
+                 Name="editCustomerPhone" Margin="57,51,56,0"/>
+        <TextBox Grid.Column="0" Grid.Row="3" Margin="59,51,53,5"
+                materialDesign:HintAssist.Hint="Chọn sản phẩm"
+                Width="221"
+                Foreground="Red"
+                FontSize="15"
+                IsReadOnly="True"
+                Background="Transparent"
+                FontFamily="Sitka Subheading"
+                FontWeight="Bold"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding ProductId}"
+                />
+        <!--Số lượng mua-->
+        <TextBox Grid.Row="1" Grid.Column="1"
+                 materialDesign:HintAssist.Hint="Số lượng"
+                 Width="100"
+                 Margin="57,51,177,0"
+                 FontSize="15"
+                 Background="Transparent"
+                 FontFamily="Sitka Subheading"
+                 FontWeight="Bold"
+                 IsEnabled="{Binding ElementName=editProductId, Path=Text.Length}"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                 Text="{Binding Quanlity, Mode=TwoWay}"
+                 Name="editNumberBuy"/>
+
+        <!--Số lượng được tặng-->
+        <TextBox Grid.Row="1" Grid.Column="1"
+                 materialDesign:HintAssist.Hint="Được tặng"
+                 Width="100"
+                 Margin="177,51,57,0"
+                 FontSize="15"
+                 Background="Transparent"
+                 FontFamily="Sitka Subheading"
+                 FontWeight="Bold"
+                 IsReadOnly="True"
+                 IsEnabled="{Binding ElementName=editProductId, Path=Text.Length}"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                 Text="{Binding NumberGet}"
+                 Name="editNumberGet"/>
+
+        <!--Giá gốc-->
+        <TextBox Grid.Row="2" Grid.Column="1"
+                 Width="100"
+                 Margin="57,51,177,0"
+                 FontSize="15"
+                 Background="Transparent"
+                 FontFamily="Sitka Subheading"
+                 FontWeight="Bold"
+                 IsReadOnly="True"
+                 IsEnabled="{Binding ElementName=editProductId, Path=Text.Length}"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding OldPrice}"
+                 Name="editOriginalPrice">
+            <materialDesign:HintAssist.Hint>
+                <TextBlock>
+                    <Bold>Giá gốc</Bold> (₫)
+                </TextBlock>
+            </materialDesign:HintAssist.Hint>
+        </TextBox>
+
+        <!--Giá bán-->
+        <TextBox Grid.Row="2" Grid.Column="1"
+                 Width="100"
+                 Margin="177,51,57,0"
+                 FontSize="15"
+                 Background="Transparent"
+                 FontFamily="Sitka Subheading"
+                 FontWeight="Bold"
+                 IsReadOnly="True"
+                 IsEnabled="{Binding ElementName=editProductId, Path=Text.Length}"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                 Text="{Binding SellPrice}"
+                 Name="editSellPrice">
+            <materialDesign:HintAssist.Hint>
+                <TextBlock>
+                    <Bold>Giá bán</Bold> (₫)
+                </TextBlock>
+            </materialDesign:HintAssist.Hint>
+        </TextBox>
+
+
+
+
+        <!--Danh sách khuyến mại được áp dụng-->
+        <ListView Name="listEvent" Grid.Row="1" Grid.Column="2" Grid.RowSpan="3" ItemsSource="{Binding ListEvent}" SelectedItem="{Binding EventItem,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                  FontFamily="Sitka Subheading"
+                  FontSize="13"
+                  Margin="5,6,0,89"
+                  Foreground="Black"
+                  HorizontalAlignment="Left" Width="262" >
+
+            <!--Thiết kế các cột-->
+            <ListView.View>
+                <GridView>
+                    <!--Cột Tên khuyến mãi-->
+                    <GridViewColumn Width="225" DisplayMemberBinding="{Binding Name}">
+                        <GridViewColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <Border Width="183">
+                                    <Border.Effect>
+                                        <DropShadowEffect Color="White" Direction="270" ShadowDepth="1" BlurRadius="5"/>
+                                    </Border.Effect>
+                                    <Label Content="KHUYẾN MÃI ÁP DỤNG" Padding="1" FontSize="14.5" Foreground="Black" FontWeight="Bold" Width="182"/>
+                                </Border>
+                            </DataTemplate>
+                        </GridViewColumn.HeaderTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+            <!--Thiết kế các cột-->
+        </ListView>
+        <TextBox x:Name="SearchTextBox"
+                   Grid.Row="3" Grid.Column="2"
+                             Text="{Binding TextSearch}"
+                             materialDesign:HintAssist.HelperTextFontSize="16"
+                             materialDesign:HintAssist.Hint="Search" Margin="37,33,117,28" />
+        <Button Margin="253,42,38,28"
+                 Grid.Row="3" Grid.Column="2"
+                            Command="{Binding SearchCommand}">
+            <materialDesign:PackIcon Kind="Magnify" />
+        </Button>
+        <!--Danh sách khuyến mại được áp dụng-->
+        <ListView Grid.Row="3" Grid.Column="2" Grid.RowSpan="3" ItemsSource="{Binding Products}" SelectedItem="{Binding Product,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                  FontFamily="Sitka Subheading"
+                  FontSize="13"
+                  Margin="0,102,0,10"
+                  Foreground="Black"
+                  HorizontalAlignment="Center" Width="258" >
+
+            <!--Thiết kế các cột-->
+            <ListView.View>
+                <GridView>
+                    <!--Cột Tên khuyến mãi-->
+
+                    <GridViewColumn Width="225" DisplayMemberBinding="{Binding ProductName}">
+                        <GridViewColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <Border Width="183">
+                                    <Border.Effect>
+                                        <DropShadowEffect Color="White" Direction="270" ShadowDepth="1" BlurRadius="5"/>
+                                    </Border.Effect>
+                                    <Label Content="Danh sách sản phẩm" Padding="1" FontSize="14.5" Foreground="Black" FontWeight="Bold" Width="182"/>
+                                </Border>
+                            </DataTemplate>
+                        </GridViewColumn.HeaderTemplate>
+                    </GridViewColumn>
+
+                </GridView>
+            </ListView.View>
+            <!--Thiết kế các cột-->
+        </ListView>
+        <!--Hai hình thức thanh toán-->
+        <RadioButton Grid.Row="4" VerticalAlignment="Bottom"
+                     HorizontalAlignment="Center" Content="THANH TOÁN TRỰC TIẾP"
+                     FontFamily="Sitka Subheading"
+                     FontSize="15"
+                     Margin="0,0,30,0"
+                     FontWeight="Bold"
+                     GroupName="Payment"
+                     IsChecked="{Binding IsDirectPayment}"
+                     Name="rdoGoToShop"/>
+        <RadioButton Grid.Row="4" Grid.Column="1" VerticalAlignment="Bottom"
+                     Content="GIAO HÀNG TẬN NƠI"
+                     HorizontalAlignment="Center"
+                     FontFamily="Sitka Subheading"
+                     FontSize="15"
+                     Margin="0,0,60,0"
+                     FontWeight="Bold"
+                     GroupName="Payment"
+                     IsChecked="{Binding IsDelivery}"
+                     Name="rdoShip"/>
+
+        <!--Số tiền khách hàng đưa-->
+        <TextBox Grid.Row="5"
+                 Width="220"
+                 FontSize="15"
+                 Background="Transparent"
+                 FontFamily="Sitka Subheading"
+                 VerticalAlignment="Center"
+                 FontWeight="Bold"
+                 IsEnabled="{Binding IsChecked, ElementName=rdoGoToShop}"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                 Text="{Binding MoneyTaken, Mode=TwoWay}">
+            <materialDesign:HintAssist.Hint>
+                <TextBlock>
+                    <Bold>Số tiền khách đưa</Bold> (₫)
+                </TextBlock>
+            </materialDesign:HintAssist.Hint>
+        </TextBox>
+
+        <!--Số tiền trả lại-->
+        <TextBox Grid.Row="6"
+                 Width="220"
+                 FontSize="15"
+                 IsEnabled="{Binding IsChecked, ElementName=rdoGoToShop}"
+                 IsReadOnly="True"
+                 Background="Transparent"
+                 FontFamily="Sitka Subheading"
+                 VerticalAlignment="Center"
+                 FontWeight="Bold"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                 Text="{Binding editMoneyExchange,Mode=TwoWay}">
+            <materialDesign:HintAssist.Hint>
+                <TextBlock>
+                    <Bold>Số tiền trả lại</Bold> (₫)
+                </TextBlock>
+            </materialDesign:HintAssist.Hint>
+        </TextBox>
+
+        <!--Địa chỉ nhận hàng-->
+        <TextBox Grid.Row="5" Grid.Column="1"
+                 Width="299"
+                 Margin="25,0,0,0"
+                 FontSize="15"
+                 HorizontalAlignment="Left"
+                 Background="Transparent"
+                 FontFamily="Sitka Subheading"
+                 VerticalAlignment="Center"
+                 FontWeight="Bold"
+                 IsEnabled="{Binding IsChecked, ElementName=rdoShip}"
+                 materialDesign:HintAssist.Hint="Địa chỉ nhận hàng"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                 Text="{Binding address}"/>
+
+        <!--Số tiền cọc đã chuyển khoản-->
+        <TextBox Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2"
+                 Width="130"
+                 FontSize="15"
+                 Background="Transparent"
+                 FontFamily="Sitka Subheading"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Left"
+                 Margin="25,0,0,0"
+                 FontWeight="Bold"
+                 IsEnabled="{Binding IsChecked, ElementName=rdoShip}"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                 Text="{Binding editDeposit, Mode=TwoWay}">
+            <materialDesign:HintAssist.Hint>
+                <TextBlock>
+                    <Bold>Tiền cọc</Bold> (₫)
+                </TextBlock>
+            </materialDesign:HintAssist.Hint>
+        </TextBox>
+
+        <!--Phí ship-->
+        <TextBox Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2"
+                 Width="130"
+                 FontSize="15"
+                 Background="Transparent"
+                 FontFamily="Sitka Subheading"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Left"
+                 Margin="200,0,0,0"
+                 FontWeight="Bold"
+                 IsEnabled="{Binding IsChecked, ElementName=rdoShip}"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                  Text="{Binding Shipcost,Mode=TwoWay}">
+            <materialDesign:HintAssist.Hint>
+                <TextBlock>
+                    <Bold>Phí ship</Bold> (₫)
+                </TextBlock>
+            </materialDesign:HintAssist.Hint>
+        </TextBox>
+
+        <!--Số tiền sẽ thu-->
+        <TextBox Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2"
+                 Width="130"
+                 FontSize="15"
+                 Background="Transparent"
+                 FontFamily="Sitka Subheading"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Left"
+                 Margin="380,0,0,0"
+                 FontWeight="Bold"
+                 IsReadOnly="True"
+                 IsEnabled="{Binding IsChecked, ElementName=rdoShip}"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                 Text="{Binding editMoneyWillGet}">
+            <materialDesign:HintAssist.Hint>
+                <TextBlock>
+                    <Bold>Sẽ thu</Bold> (₫)
+                </TextBlock>
+            </materialDesign:HintAssist.Hint>
+        </TextBox>
+
+        <!--Button xác nhận-->
+        <Button Grid.Column="2" Grid.Row="7"
+                Width="100" Content="Xác nhận"
+                FontWeight="Bold"
+                Foreground="White"
+                Background="ForestGreen"
+                FontSize="15"
+                FontFamily="Sitka Subheading"
+                Style="{StaticResource MaterialDesignRaisedButton}"
+                IsEnabled="{Binding btnstatus}"
+                Command="{Binding CfCommand}"
+                Name="btnConfirm"/>
     </Grid>
 </Window>
+

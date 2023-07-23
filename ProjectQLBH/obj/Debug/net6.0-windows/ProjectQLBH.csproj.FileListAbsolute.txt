@@ -58,8 +58,6 @@ C:\Users\Admin\OneDrive\Máy tính\Documents\GitHub\PRN221\ProjectQLBH\obj\Debug
 C:\Users\Admin\OneDrive\Máy tính\Documents\GitHub\PRN221\ProjectQLBH\obj\Debug\net6.0-windows\Dashboard.g.cs
 C:\Users\Admin\OneDrive\Máy tính\Documents\GitHub\PRN221\ProjectQLBH\obj\Debug\net6.0-windows\Login.g.cs
 C:\Users\Admin\OneDrive\Máy tính\Documents\GitHub\PRN221\ProjectQLBH\obj\Debug\net6.0-windows\MainWindow.g.cs
-C:\Users\Admin\OneDrive\Máy tính\Documents\GitHub\PRN221\ProjectQLBH\obj\Debug\net6.0-windows\QLCustomer.g.cs
-C:\Users\Admin\OneDrive\Máy tính\Documents\GitHub\PRN221\ProjectQLBH\obj\Debug\net6.0-windows\QLEmployee.g.cs
 C:\Users\Admin\OneDrive\Máy tính\Documents\GitHub\PRN221\ProjectQLBH\obj\Debug\net6.0-windows\QLKho.g.cs
 C:\Users\Admin\OneDrive\Máy tính\Documents\GitHub\PRN221\ProjectQLBH\obj\Debug\net6.0-windows\QLOrders.g.cs
 C:\Users\Admin\OneDrive\Máy tính\Documents\GitHub\PRN221\ProjectQLBH\obj\Debug\net6.0-windows\QLProduct.g.cs
@@ -72,8 +70,6 @@ C:\Users\Admin\OneDrive\Máy tính\Documents\GitHub\PRN221\ProjectQLBH\obj\Debug
 C:\Users\Admin\OneDrive\Máy tính\Documents\GitHub\PRN221\ProjectQLBH\obj\Debug\net6.0-windows\Dashboard.baml
 C:\Users\Admin\OneDrive\Máy tính\Documents\GitHub\PRN221\ProjectQLBH\obj\Debug\net6.0-windows\Login.baml
 C:\Users\Admin\OneDrive\Máy tính\Documents\GitHub\PRN221\ProjectQLBH\obj\Debug\net6.0-windows\MainWindow.baml
-C:\Users\Admin\OneDrive\Máy tính\Documents\GitHub\PRN221\ProjectQLBH\obj\Debug\net6.0-windows\QLCustomer.baml
-C:\Users\Admin\OneDrive\Máy tính\Documents\GitHub\PRN221\ProjectQLBH\obj\Debug\net6.0-windows\QLEmployee.baml
 C:\Users\Admin\OneDrive\Máy tính\Documents\GitHub\PRN221\ProjectQLBH\obj\Debug\net6.0-windows\QLKho.baml
 C:\Users\Admin\OneDrive\Máy tính\Documents\GitHub\PRN221\ProjectQLBH\obj\Debug\net6.0-windows\QLOrders.baml
 C:\Users\Admin\OneDrive\Máy tính\Documents\GitHub\PRN221\ProjectQLBH\obj\Debug\net6.0-windows\QLProduct.baml

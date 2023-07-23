@@ -19,12 +19,6 @@
     <Compile Update="Login.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="QLCustomer.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="QLEmployee.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="QLKho.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -55,12 +49,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="QLCustomer.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="QLEmployee.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="QLKho.xaml">

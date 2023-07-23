@@ -8,6 +8,7 @@ using Core.Models;
 using Core.Repository;
 using System.Windows.Input;
 using System.Windows;
+using DocumentFormat.OpenXml.Wordprocessing;
 
 namespace ProjectQLBH.ViewModel
 {
@@ -120,15 +121,6 @@ namespace ProjectQLBH.ViewModel
                     Quanlity = 1;
                     OldPrice = (int)product.SellPrice;
                     SellPrice = (int)product.SellPrice;
-
-                    //ImportPrice = product.ImportPrice;
-                    //SellPrice = product.SellPrice;
-                    //NumberOfInventoty = product.NumberOfInventoty;
-                    //DateAdd = DateTime.ParseExact(product.DateAdd.ToString("MM-dd-yyyy"), "MM-dd-yyyy", CultureInfo.InvariantCulture);
-                    //Image = product.Image;
-                    //Status = product.Status;
-                    //CategoryId = product.CategoryId;
-                    //SelectedCategory = product.Category;
                 }
             }
         }
@@ -141,52 +133,39 @@ namespace ProjectQLBH.ViewModel
             Products = productRepository.GetProducts();
             eventRepository = new EventRepository();
             ListEvent = eventRepository.GetEvent();
-
-            ListOrderCommand = new ReplayCommand<Window>((p) => { return true; }, (p) =>
-            {
-                //ListOrdersWindow listOrder = new ListOrdersWindow();
-                //listOrder.ShowDialog();
-            });
-            EventManage = new ReplayCommand<Window>((p) => { return true; }, (p) =>
-            {
-                //EventWindow listEvent = new EventWindow();
-                //listEvent.ShowDialog();
-            });
             SearchCommand = new ReplayCommand<Object>((p) => { return true; }, (p) =>
             {
                 Products = productRepository.GetProductsByName(TextSearch);
             });
 
             CfCommand = new ReplayCommand<object>((p) => { return true; }, (p) =>
-            {
-                var bill = new Bill()
-                {
-                    UserId = 1,
-                    Date = DateTime.Now,
-                    Name = CustomerName,
-                    Phone = Phone,
-                    ProductId = Product.ProductId.ToString(),
-                    Number = Quanlity,
-                    OriginalPrice = OldPrice,
-                    FinalPrice = SellPrice,
-                    Event = EventItem.Name,
-                    GoToShop = IsDirectPayment,
-                    MoneyTaken = MoneyTaken,
-                    MoneyExchange = editMoneyExchange,
-                    Address = address,
-                    Deposit = editDeposit,
-                    Ship = Shipcost,
-                    MoneyWillGet = editMoneyWillGet,
-                    Status = "Chưa Hoàn Thành"
-                };
-
-                if (MessageBox.Show("Xác nhận đơn hàng sau khi đã giao Hàng Thành công ?", "Xác Nhận", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-                {
-                    billRepository.AddBill(bill);
-                    //ListOrdersWindow listOrder = new ListOrdersWindow();
-                    //listOrder.ShowDialog();
-                }
-
+            {   
+                    var bill = new Bill()
+                    {
+                        UserId = 1,
+                        Date = DateTime.Now,
+                        Name = CustomerName,
+                        Phone = Phone,
+                        ProductId = Product.ProductId.ToString(),
+                        Number = Quanlity,
+                        OriginalPrice = OldPrice,
+                        FinalPrice = SellPrice,
+                        Event = EventItem.Name,
+                        GoToShop = IsDirectPayment,
+                        MoneyTaken = MoneyTaken,
+                        MoneyExchange = editMoneyExchange,
+                        Address = address,
+                        Deposit = editDeposit,
+                        Ship = Shipcost,
+                        MoneyWillGet = editMoneyWillGet,
+                        Status = "Chưa Hoàn Thành"
+                    };
+                    if (MessageBox.Show("Xác nhận đơn hàng sau khi đã giao Hàng Thành công ?", "Xác Nhận", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                    {
+                        billRepository.AddBill(bill);
+                        //ListOrdersWindow listOrder = new ListOrdersWindow();
+                        //listOrder.ShowDialog();
+                    }
             });
 
         }
