@@ -4,11 +4,168 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProjectQLBH"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       >
-
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="0 0 0 50">
+            <Label Content="Product"
+                   Grid.ColumnSpan="2"
+                   FontFamily="Sitka Subheading"
+                   FontSize="22"
+                   Padding="0"
+                   FontWeight="Bold"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Center" />
+            <Button Grid.Column="1"
+                    Grid.Row="0"
+                    Height="20"
+                    Width="50"
+                    Content="IMPORT"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    FontSize="9"
+                    Padding="0"
+                    Margin="0,0,20,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Background="ForestGreen"
+                    FontFamily="Sitka Subheading"
+                    Style="{StaticResource MaterialDesignRaisedButton}">
+            </Button>
+
+
+            <Button Grid.Row="0"
+                    Height="20"
+                    Width="50"
+                    Content="EXPORT"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    Padding="0"
+                    FontSize="9"
+                    Margin="0,0,75,8"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Background="ForestGreen"
+                    FontFamily="Sitka Subheading"
+                    Style="{StaticResource MaterialDesignRaisedButton}" />
+        </Grid>
+        <Grid Grid.Row="1">
+            <WrapPanel HorizontalAlignment="Center" x:Name="ProductListView">
+                <Border BorderBrush="White" BorderThickness="5" Margin="20 0" CornerRadius="15">
+                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth0" UniformCornerRadius="15" BorderThickness="5"
+                         BorderBrush="White" Width="110" Height="130" Background="#F6F6F8">
+                        <StackPanel Margin="10">
+                            <Image Width="50"  Height="50" Source="{Binding Image}" />
+                            <TextBlock FontSize="12" Text="{Binding ProductName}" />
+                            <materialDesign:PackIcon Kind="EllipsisHorizontal" HorizontalAlignment="Right" />
+                        </StackPanel>
+                    </materialDesign:Card>
+                </Border>
+                <Border BorderBrush="White" BorderThickness="5" Margin="20 0" CornerRadius="15">
+                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth0" UniformCornerRadius="15" BorderThickness="5"
+                         BorderBrush="White" Width="110" Height="130" Background="#F6F6F8">
+                        <StackPanel Margin="10">
+                            <materialDesign:PackIcon Kind="Instagram">
+                                <materialDesign:PackIcon.Foreground>
+                                    <LinearGradientBrush StartPoint="1,0" EndPoint="0.5,1">
+                                        <GradientStop Color="#912A73" Offset="0" />
+                                        <GradientStop Color="#FA8E22" Offset="1" />
+                                    </LinearGradientBrush>
+                                </materialDesign:PackIcon.Foreground>
+                            </materialDesign:PackIcon>
+                            <TextBlock FontWeight="SemiBold" FontSize="25" Text="690K" Margin="0 10 0 0" />
+                            <TextBlock FontSize="12" Text="Followers" />
+                            <materialDesign:PackIcon Kind="EllipsisHorizontal" HorizontalAlignment="Right" />
+                        </StackPanel>
+                    </materialDesign:Card>
+                </Border>
+                <Border BorderBrush="White" BorderThickness="5" Margin="20 0" CornerRadius="15">
+                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth0" UniformCornerRadius="15" BorderThickness="5"
+                         BorderBrush="White" Width="110" Height="130" Background="#F6F6F8">
+                        <StackPanel Margin="10">
+                            <materialDesign:PackIcon Kind="Youtube" Foreground="Red" />
+                            <TextBlock FontWeight="SemiBold" FontSize="25" Text="2.3M" Margin="0 10 0 0" />
+                            <TextBlock FontSize="12" Text="Followers" />
+                            <materialDesign:PackIcon Kind="EllipsisHorizontal" HorizontalAlignment="Right" />
+                        </StackPanel>
+                    </materialDesign:Card>
+                </Border>
+                <Border BorderBrush="White" BorderThickness="5" Margin="20 0" CornerRadius="15">
+                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth0" UniformCornerRadius="15" BorderThickness="5"
+                         BorderBrush="White" Width="110" Height="130" Background="#F6F6F8">
+                        <StackPanel Margin="10">
+                            <materialDesign:PackIcon Kind="Facebook" Foreground="#29A3EC" />
+                            <TextBlock FontWeight="SemiBold" FontSize="25" Text="60K" Margin="0 10 0 0" />
+                            <TextBlock FontSize="12" Text="Followers" />
+                            <materialDesign:PackIcon Kind="EllipsisHorizontal" HorizontalAlignment="Right" />
+                        </StackPanel>
+                    </materialDesign:Card>
+                </Border>
+            </WrapPanel>
+
+        </Grid>
+        <Grid Grid.Row="2">
+            <WrapPanel HorizontalAlignment="Center">
+                <Border BorderBrush="White" BorderThickness="5" Margin="20 0" CornerRadius="15">
+                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth0" UniformCornerRadius="15" BorderThickness="5"
+                         BorderBrush="White" Width="110" Height="130" Background="#F6F6F8">
+                        <StackPanel Margin="10">
+                            <materialDesign:PackIcon Kind="Twitter" Foreground="#29A3EC" />
+                            <TextBlock FontWeight="SemiBold" FontSize="25" Text="280K" Margin="0 10 0 0" />
+                            <TextBlock FontSize="12" Text="Followers" />
+                            <materialDesign:PackIcon Kind="EllipsisHorizontal" HorizontalAlignment="Right" />
+                        </StackPanel>
+                    </materialDesign:Card>
+                </Border>
+                <Border BorderBrush="White" BorderThickness="5" Margin="20 0" CornerRadius="15">
+                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth0" UniformCornerRadius="15" BorderThickness="5"
+                         BorderBrush="White" Width="110" Height="130" Background="#F6F6F8">
+                        <StackPanel Margin="10">
+                            <materialDesign:PackIcon Kind="Instagram">
+                                <materialDesign:PackIcon.Foreground>
+                                    <LinearGradientBrush StartPoint="1,0" EndPoint="0.5,1">
+                                        <GradientStop Color="#912A73" Offset="0" />
+                                        <GradientStop Color="#FA8E22" Offset="1" />
+                                    </LinearGradientBrush>
+                                </materialDesign:PackIcon.Foreground>
+                            </materialDesign:PackIcon>
+                            <TextBlock FontWeight="SemiBold" FontSize="25" Text="690K" Margin="0 10 0 0" />
+                            <TextBlock FontSize="12" Text="Followers" />
+                            <materialDesign:PackIcon Kind="EllipsisHorizontal" HorizontalAlignment="Right" />
+                        </StackPanel>
+                    </materialDesign:Card>
+                </Border>
+                <Border BorderBrush="White" BorderThickness="5" Margin="20 0" CornerRadius="15">
+                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth0" UniformCornerRadius="15" BorderThickness="5"
+                         BorderBrush="White" Width="110" Height="130" Background="#F6F6F8">
+                        <StackPanel Margin="10">
+                            <materialDesign:PackIcon Kind="Youtube" Foreground="Red" />
+                            <TextBlock FontWeight="SemiBold" FontSize="25" Text="2.3M" Margin="0 10 0 0" />
+                            <TextBlock FontSize="12" Text="Followers" />
+                            <materialDesign:PackIcon Kind="EllipsisHorizontal" HorizontalAlignment="Right" />
+                        </StackPanel>
+                    </materialDesign:Card>
+                </Border>
+                <Border BorderBrush="White" BorderThickness="5" Margin="20 0" CornerRadius="15">
+                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth0" UniformCornerRadius="15" BorderThickness="5"
+                         BorderBrush="White" Width="110" Height="130" Background="#F6F6F8">
+                        <StackPanel Margin="10">
+                            <materialDesign:PackIcon Kind="Facebook" Foreground="#29A3EC" />
+                            <TextBlock FontWeight="SemiBold" FontSize="25" Text="60K" Margin="0 10 0 0" />
+                            <TextBlock FontSize="12" Text="Followers" />
+                            <materialDesign:PackIcon Kind="EllipsisHorizontal" HorizontalAlignment="Right" />
+                        </StackPanel>
+                    </materialDesign:Card>
+                </Border>
+            </WrapPanel>
+
+        </Grid>
     </Grid>
 </UserControl>

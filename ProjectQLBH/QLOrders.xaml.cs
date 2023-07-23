@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Core.IRepository;
+using Core.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ProjectQLBH
 {
@@ -20,9 +23,18 @@ namespace ProjectQLBH
     /// </summary>
     public partial class QLOrders : UserControl
     {
+        Management_System_ProjectContext _context = new Management_System_ProjectContext();
+        private List<Product> products;
+        private List<Category> categories;
+        private IProductRepository productRepository;
         public QLOrders()
         {
+            products = new List<Product>();
+            categories = new List<Category>();
             InitializeComponent();
+            products = _context.Products.ToList();
+            categories = _context.Categories.ToList();
+            ProductListView.DataContext = products;
         }
     }
 }

@@ -18,7 +18,7 @@
     <Border Background="#eff2f7" CornerRadius="30">
         <Grid >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="250"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
@@ -116,7 +116,7 @@
             </Grid>
 
             <!--main section-->
-            <Grid Grid.Column="1" Background="#F6F5F8" Name="RenderPages" Height="930" Width="1330"  >
+            <Grid Grid.Column="1" Background="#eff2f7" Name="RenderPages" Height="750" Width="1200"  >
                 <!--<Grid.RowDefinitions>
                     <RowDefinition Height="40"></RowDefinition>
                     <RowDefinition></RowDefinition>
@@ -137,7 +137,7 @@
                 </Grid>-->
 
                 <Grid>
-                    <ContentControl x:Name="RenderPages1" Margin="0 0 10 10"/>
+                    <ContentControl x:Name="RenderPages1" Margin="0 0 0 0"/>
                 </Grid>
 
             </Grid>
