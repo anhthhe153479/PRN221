@@ -77,12 +77,19 @@ namespace ProjectQLBH
 
         private void textRePassword_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            txtRePassword.Focus();
         }
 
         private void txtRePassword_PasswordChanged(object sender, RoutedEventArgs e)
         {
-
+            if (!string.IsNullOrEmpty(txtRePassword.Password) && txtRePassword.Password.Length > 0)
+            {
+                txtRePassword.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                txtRePassword.Visibility = Visibility.Visible;
+            }
         }
 
     }
