@@ -139,8 +139,8 @@ namespace ProjectQLBH.ViewModel
             });
 
             CfCommand = new ReplayCommand<object>((p) => { return true; }, (p) =>
-            {   
-                    var bill = new Bill()
+            {
+                var bill = new Bill()
                     {
                         UserId = 1,
                         Date = DateTime.Now,
@@ -162,6 +162,7 @@ namespace ProjectQLBH.ViewModel
                     };
                     if (MessageBox.Show("Xác nhận đơn hàng sau khi đã giao Hàng Thành công ?", "Xác Nhận", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                     {
+                        billRepository = new BillRepository();
                         billRepository.AddBill(bill);
                         //ListOrdersWindow listOrder = new ListOrdersWindow();
                         //listOrder.ShowDialog();

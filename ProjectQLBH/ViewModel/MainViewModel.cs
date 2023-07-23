@@ -42,31 +42,6 @@ namespace ProjectQLBH.ViewModel
                 }
                 else p.Close();
             });
-            LoadProductWindowCommand = new ReplayCommand<Window>((p) => { return true; }, (p) =>
-            {
-
-                //ProductWindow productWindow = new ProductWindow();
-                //productWindow.ShowDialog();
-
-            });
-            //LoadCategoryWindowCommand = new ReplayCommand<Window>((p) => { return true; }, (p) =>
-            //{
-            //    CategoryWindow categoryWindow = new CategoryWindow();
-            //    categoryWindow.ShowDialog();
-            //});
-            //LoadBillWindowCommand = new ReplayCommand<Window>((p) => { return true; }, (p) =>
-            //{
-            //    ProductWindow productWindow = new ProductWindow();
-            //    productWindow.ShowDialog();
-            //});
-
-            CreateBillCommand = new ReplayCommand<Window>((p) => { return true; }, (p) =>
-            {
-                QLOrders newBill = new QLOrders();
-                //newBill.Show();
-            });
-
-
         }
     }
 }

@@ -87,14 +87,8 @@ namespace ProjectQLBH.ViewModel
                     NewPrice = SelectedItem.FinalPrice;
                     disevent = SelectedItem.Event;
                     Shipcost = (long)SelectedItem.Ship;
-
-                    //update btnstatus
-                    btnstatus = false;
-                    if (SelectedItem.Status == "Chưa hoàn thành")
-                    {
-                        btnstatus = true;
-                    }
-
+                    
+                    btnstatus = true;
                 }
             }
         }

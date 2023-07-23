@@ -78,8 +78,8 @@
                             </Button>
                             <Button Style="{StaticResource menuButton}" Click="Button_Click_1">
                                 <StackPanel Orientation="Horizontal">
-                                    <Icon:PackIconMaterial Kind="StorePlusOutline" Style="{StaticResource menuButtonIcon}"/>
-                                    <TextBlock Text="Warehouse"/>
+                                    <Icon:PackIconMaterial Kind="Timeline" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Event"/>
                                 </StackPanel>
                             </Button>
 
