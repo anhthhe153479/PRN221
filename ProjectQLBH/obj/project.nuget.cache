@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "zhG+SewD+HWAz44QY+trGYdCR5yz4B4nab7H0t5Lu3eg+rlf7EtNI/ztmelYbyrgZr3VZWchuDCz6WCabiVK1w==",
+  "dgSpecHash": "wK0iqIRqnxHFhKrMovgVD60svyGytHFedEILtL9W9B905Ksnfch8mNaxrjjtmmtKYpWPzdSaGk3zaIs7knJteA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Admin\\OneDrive\\Máy tính\\Documents\\GitHub\\PRN221\\ProjectQLBH\\ProjectQLBH.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\livecharts\\0.9.7\\livecharts.0.9.7.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\livecharts.wpf\\0.9.7\\livecharts.wpf.0.9.7.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\mahapps.metro.iconpacks.material\\4.11.0\\mahapps.metro.iconpacks.material.4.11.0.nupkg.sha512",
@@ -15,6 +16,7 @@
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.15\\microsoft.entityframeworkcore.6.0.15.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.15\\microsoft.entityframeworkcore.abstractions.6.0.15.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.15\\microsoft.entityframeworkcore.analyzers.6.0.15.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.entityframeworkcore.design\\6.0.15\\microsoft.entityframeworkcore.design.6.0.15.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\6.0.15\\microsoft.entityframeworkcore.relational.6.0.15.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\6.0.15\\microsoft.entityframeworkcore.sqlserver.6.0.15.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\6.0.0\\microsoft.extensions.caching.abstractions.6.0.0.nupkg.sha512",
