@@ -28,10 +28,11 @@ namespace ProjectQLBH.ViewModel
         public ICommand ImportExcelCommand { get; set; }
         public ICommand ExportExcelCommand { get; set; }
         public ICommand SearchCommand { get; set; }
-        public ICommand LoadCategoryWindowCommand { get; set; }
         //public ICommand LoatCategoryCommand { get; set; }
         public ICommand ChooseFileCommand { get; set; }
         public ICommand BackHomeCommand { get; set; }
+        public ICommand LoadCategoryWindowCommand { get; set; }
+
 
         private ObservableCollection<string> _comboItems;
         public ObservableCollection<string> ComboItems
@@ -130,6 +131,13 @@ namespace ProjectQLBH.ViewModel
 
         public ProductViewModel()
         {
+
+            LoadCategoryWindowCommand = new ReplayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                CategoryWindow listOrder = new CategoryWindow();
+                listOrder.Show();
+            });
+
             categoryRepository = new CategoryRepository();
             ComboItems = new ObservableCollection<string>() { "ImportPrice", "SellPrice", "Number", "Best seller", "New product" };
             ComboCategories = categoryRepository.GetCategories();
@@ -240,17 +248,6 @@ namespace ProjectQLBH.ViewModel
 
 
                 });
-            SelectedItemChangedCommand = new ReplayCommand<ComboBox>((p) => { return true; }, (p) =>
-            {
-                SelectedItem = p.SelectedValue.ToString();
-                Products = productRepository.GetProductsOrderBy(SelectedItem);
-
-            });
-            LoadCategoryWindowCommand = new ReplayCommand<Window>((p) => { return true; }, (p) =>
-            {
-                CategoryWindow categoryWindow = new CategoryWindow();
-                categoryWindow.ShowDialog();
-            });
             ExportExcelCommand = new ReplayCommand<Object>((p) => { return true; }, (p) =>
             {
                 string fileName = "Products.xlsx";

@@ -9,6 +9,7 @@
         Height="850"
         Width="1100"
       DataContext="{StaticResource ListOrderVM}"
+      xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
       >
     <Grid>
         <Grid.RowDefinitions>
@@ -234,7 +235,19 @@
                  Command="{Binding Cancelcommand}"
                 Style="{StaticResource MaterialDesignRaisedButton}">
         </Button>
-
+        <Button Grid.Column="1" Grid.Row="2"
+                Width="80" Content="Tạo Order"
+                FontWeight="Bold"
+                Foreground="White"
+                FontSize="15"
+                Padding="0"
+                Margin="-80,0,339,111"
+                VerticalAlignment="Bottom"
+                Background="ForestGreen"
+                FontFamily="Sitka Subheading"
+                Command="{Binding Createcommand}"
+                Style="{StaticResource MaterialDesignRaisedButton}">
+        </Button>
         <!--Button Xem sản phẩm-->
         <Button Grid.Column="1" Grid.Row="2"
                 Width="80" Content="Xem SP"
@@ -263,32 +276,13 @@
                               SelectedItem="{Binding SelectedStatus,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                               materialDesign:HintAssist.Hint="Xem đơn Hoàn Thành"
                               Style="{StaticResource MaterialDesignOutlinedComboBox}" Grid.Row="1" VerticalAlignment="Top">
-            <!--<i:Interaction.Triggers>
+            <i:Interaction.Triggers>
                 <i:EventTrigger EventName="SelectionChanged">
                     <i:InvokeCommandAction Command="{Binding SelectedItemChangedCommand}"
                                                   CommandParameter="{Binding ElementName=ComboBox}"     
                                                        />
                 </i:EventTrigger>
-            </i:Interaction.Triggers>-->
+            </i:Interaction.Triggers>
         </ComboBox>
-
-
-
-        <!--Progressbar loading-->
-        <ProgressBar Grid.Row="1" Grid.ColumnSpan="2"
-                     Width="25" Height="25"
-                     Style="{StaticResource MaterialDesignCircularProgressBar}"
-                     x:Name="ProgressBar">
-            <ProgressBar.Triggers>
-                <EventTrigger RoutedEvent="Loaded">
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <DoubleAnimation Storyboard.TargetProperty="Value" From="0" To="100" Duration="0:0:1" RepeatBehavior="Forever"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-            </ProgressBar.Triggers>
-        </ProgressBar>
-
     </Grid>
 </UserControl>

@@ -22,72 +22,17 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         DataContext="{StaticResource CategoryVM}"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors">
-    <Grid>
+    <Grid Grid.Row="1">
         <Grid.RowDefinitions>
-            <RowDefinition Height="100" />
-            <RowDefinition Height="300" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="200" />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.66*" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
 
-        <i:Interaction.Triggers>
-            <i:EventTrigger EventName="MouseLeftButtonDown">
-                <i:InvokeCommandAction Command="{Binding MouseMoveWindownCommand}"
-                                   CommandParameter="{Binding ElementName=ucBar}" />
-            </i:EventTrigger>
-        </i:Interaction.Triggers>
-        <Grid>
-            <materialDesign:ColorZone Padding="16"
-                                  Mode="PrimaryLight">
-                <DockPanel>
-                    <StackPanel DockPanel.Dock="Right"
-                            Background="Transparent"
-                            Orientation="Horizontal">
-                        <StackPanel.Resources>
-                            <Style TargetType="Button">
-                                <Setter Property="Margin"
-                                    Value="4"></Setter>
-                                <Setter Property="Padding"
-                                    Value="5"></Setter>
-
-                            </Style>
-                        </StackPanel.Resources>
-                        <Button Command="{Binding MinimiWindownCommand}"
-                            CommandParameter="{Binding ElementName=ucBar}"
-                            Content="{materialDesign:PackIcon Kind=WindowMinimize}"
-                            ToolTip="Follow me on Twitter" />
-                        <Button Command="{Binding MaximiWindownCommand}"
-                            CommandParameter="{Binding ElementName=ucBar}"
-                            Content="{materialDesign:PackIcon Kind=WindowMaximize}"
-                            ToolTip="Save"
-                            Background="Green" />
-                        <Separator />
-                        <Button Command="{Binding CloseWindownCommand}"
-                            CommandParameter="{Binding ElementName=ucBar}"
-                            Content="{materialDesign:PackIcon Kind=WindowClose}"
-                            ToolBar.OverflowMode="AsNeeded"
-                            Background="Red"
-                            ToolTip="Cut" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" />
-                        <TextBlock Margin="16,0,0,0"
-                               VerticalAlignment="Center"
-                               Text="{Binding Tag,ElementName=ucBar}" />
-
-                    </StackPanel>
-                </DockPanel>
-            </materialDesign:ColorZone>
-        </Grid>
-        <Grid Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50" />
-                <RowDefinition Height="200" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1.66*" />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-
-            <Button HorizontalAlignment="Left"
+        <Button HorizontalAlignment="Left"
                     Background="Transparent"
                     BorderBrush="#303030"
                     VerticalAlignment="Top"
@@ -96,13 +41,13 @@
                     Command="{Binding BackProductCommand}"
                     CommandParameter="{Binding ElementName=Category}"
                     Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}">
-                <materialDesign:PackIcon Kind="KeyboardArrowLeft"
+            <materialDesign:PackIcon Kind="KeyboardArrowLeft"
                                          Height="20"
                                          Width="20" />
-            </Button>
+        </Button>
 
 
-            <Label Content="Category"
+        <Label Content="Category"
                    Grid.ColumnSpan="2"
                    FontFamily="Sitka Subheading"
                    FontSize="22"
@@ -110,7 +55,7 @@
                    FontWeight="Bold"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Center" />
-            <ListView Name="listProductType"
+        <ListView Name="listProductType"
                       Grid.Row="1"
                       Grid.ColumnSpan="2"
                       FontFamily="Sitka Subheading"
@@ -122,56 +67,56 @@
                       ItemsSource="{Binding Categories}">
 
 
-                <ListView.View>
-                    <GridView>
+            <ListView.View>
+                <GridView>
 
-                        <GridViewColumn Width="200"
+                    <GridViewColumn Width="200"
                                         DisplayMemberBinding="{Binding CategoryId}">
-                            <GridViewColumn.HeaderTemplate>
-                                <DataTemplate>
-                                    <Border>
-                                        <Border.Effect>
-                                            <DropShadowEffect Color="White"
+                        <GridViewColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <Border>
+                                    <Border.Effect>
+                                        <DropShadowEffect Color="White"
                                                               Direction="270"
                                                               ShadowDepth="1"
                                                               BlurRadius="5" />
-                                        </Border.Effect>
-                                        <Label Content="ID"
+                                    </Border.Effect>
+                                    <Label Content="ID"
                                                Padding="1"
                                                FontSize="15"
                                                Foreground="Black"
                                                FontWeight="Bold" />
-                                    </Border>
-                                </DataTemplate>
-                            </GridViewColumn.HeaderTemplate>
-                        </GridViewColumn>
+                                </Border>
+                            </DataTemplate>
+                        </GridViewColumn.HeaderTemplate>
+                    </GridViewColumn>
 
-                        <GridViewColumn Width="110"
+                    <GridViewColumn Width="110"
                                         DisplayMemberBinding="{Binding CategoryName}">
-                            <GridViewColumn.HeaderTemplate>
-                                <DataTemplate>
-                                    <Border>
-                                        <Border.Effect>
-                                            <DropShadowEffect Color="White"
+                        <GridViewColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <Border>
+                                    <Border.Effect>
+                                        <DropShadowEffect Color="White"
                                                               Direction="270"
                                                               ShadowDepth="1"
                                                               BlurRadius="5" />
-                                        </Border.Effect>
-                                        <Label Content="Name"
+                                    </Border.Effect>
+                                    <Label Content="Name"
                                                Padding="1"
                                                FontSize="15"
                                                Foreground="Black"
                                                FontWeight="Bold" />
-                                    </Border>
-                                </DataTemplate>
-                            </GridViewColumn.HeaderTemplate>
-                        </GridViewColumn>
+                                </Border>
+                            </DataTemplate>
+                        </GridViewColumn.HeaderTemplate>
+                    </GridViewColumn>
 
-                    </GridView>
-                </ListView.View>
+                </GridView>
+            </ListView.View>
 
-            </ListView>
-            <!--<TextBox x:Name="SearchTextBox"
+        </ListView>
+        <!--<TextBox x:Name="SearchTextBox"
                      Width="190"
                      Text="{Binding TextSearch}"
                      materialDesign:HintAssist.HelperTextFontSize="16"
@@ -181,7 +126,7 @@
                 <materialDesign:PackIcon Kind="Magnify" />
             </Button>-->
 
-            <TextBox Grid.Row="1"
+        <TextBox Grid.Row="1"
                      Grid.Column="1"
                      Margin="15,12,100,0"
                      materialDesign:HintAssist.Hint="Search"
@@ -193,7 +138,7 @@
                      x:Name="SearchTextBox"
                      Text="{Binding TextSearch}"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-            <Button Grid.Column="1"
+        <Button Grid.Column="1"
                     Grid.Row="1"
                     Width="80"
                     Content="Search"
@@ -208,8 +153,8 @@
                     Style="{StaticResource MaterialDesignRaisedButton}"
                     Command="{Binding SearchCommand}"
                     Height="39">
-            </Button>
-            <TextBox Grid.Row="1"
+        </Button>
+        <TextBox Grid.Row="1"
                      Grid.Column="1"
                      Margin="15,0,15,0"
                      materialDesign:HintAssist.Hint="Name"
@@ -222,7 +167,7 @@
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
 
-            <Button Grid.Column="1"
+        <Button Grid.Column="1"
                     Grid.Row="1"
                     Width="80"
                     Content="Add"
@@ -236,10 +181,10 @@
                     FontFamily="Sitka Subheading"
                     Style="{StaticResource MaterialDesignRaisedButton}"
                     Command="{Binding AddCommand}">
-            </Button>
+        </Button>
 
 
-            <Button Grid.Column="1"
+        <Button Grid.Column="1"
                     Grid.Row="1"
                     Width="80"
                     Content="Update"
@@ -252,10 +197,10 @@
                     FontFamily="Sitka Subheading"
                     Style="{StaticResource MaterialDesignRaisedButton}"
                     Command="{Binding UpdateCommand}">
-            </Button>
+        </Button>
 
 
-            <Button Grid.Column="1"
+        <Button Grid.Column="1"
                     Grid.Row="1"
                     Width="80"
                     Content="Delete"
@@ -269,49 +214,7 @@
                     FontFamily="Sitka Subheading"
                     Style="{StaticResource MaterialDesignRaisedButton}"
                     Command="{Binding DeleteCommand}">
-            </Button>
-
-
-            <Button Grid.Column="1"
-                    Grid.Row="0"
-                    Height="20"
-                    Width="50"
-                    Content="IMPORT"
-                    FontWeight="Bold"
-                    Foreground="White"
-                    FontSize="9"
-                    Padding="0"
-                    Margin="0,0,20,0"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Background="ForestGreen"
-                    FontFamily="Sitka Subheading"
-                    Style="{StaticResource MaterialDesignRaisedButton}">
-            </Button>
-
-
-            <Button Grid.Column="1"
-                    Grid.Row="0"
-                    Height="20"
-                    Width="50"
-                    Content="EXPORT"
-                    FontWeight="Bold"
-                    Foreground="White"
-                    Padding="0"
-                    FontSize="9"
-                    Margin="0,0,75,0"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Background="ForestGreen"
-                    FontFamily="Sitka Subheading"
-                    Style="{StaticResource MaterialDesignRaisedButton}">
-            </Button>
-
-        </Grid>
-
-
-
-
+        </Button>
 
     </Grid>
 </Window>

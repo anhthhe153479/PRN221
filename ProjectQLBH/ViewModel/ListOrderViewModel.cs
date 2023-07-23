@@ -60,6 +60,7 @@ namespace ProjectQLBH.ViewModel
 
         public ICommand Donecommand { get; set; }
         public ICommand Viewcommand { get; set; }
+        public ICommand Createcommand { get; set; }
         public ICommand Cancelcommand { get; set; }
         public ICommand SelectedItemChangedCommand { get; set; }
 
@@ -124,6 +125,11 @@ namespace ProjectQLBH.ViewModel
             ListBills = billRepository.GetBill();
             ComboItems = new ObservableCollection<string>() { "Tất cả Hóa Đơn", "Xem Đơn Đã Hoành Thành", "Xem Đơn Đã Hủy", "Xem Đơn Chưa Hoàn Thành" };
 
+            Createcommand = new ReplayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                CreateBill listOrder = new CreateBill();
+                listOrder.Show();
+            });
 
             Donecommand = new ReplayCommand<object>(
                 (p) =>

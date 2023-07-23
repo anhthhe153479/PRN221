@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace ProjectQLBH
 {
     /// <summary>
-    /// Interaction logic for QLEmployee.xaml
+    /// Interaction logic for CreateBill.xaml
     /// </summary>
-    public partial class QLEmployee : UserControl
+    public partial class CreateBill : Window
     {
-        public QLEmployee()
+        public CreateBill()
         {
             InitializeComponent();
         }

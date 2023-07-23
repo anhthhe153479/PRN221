@@ -30,38 +30,6 @@
                    FontWeight="Bold"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Center" />
-            <Button Grid.Column="1"
-                    Grid.Row="0"
-                    Height="20"
-                    Width="50"
-                    Content="IMPORT"
-                    FontWeight="Bold"
-                    Foreground="White"
-                    FontSize="9"
-                    Padding="0"
-                    Margin="0,0,20,0"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Background="ForestGreen"
-                    FontFamily="Sitka Subheading"
-                    Style="{StaticResource MaterialDesignRaisedButton}">
-            </Button>
-
-
-            <Button Grid.Row="0"
-                    Height="20"
-                    Width="50"
-                    Content="EXPORT"
-                    FontWeight="Bold"
-                    Foreground="White"
-                    Padding="0"
-                    FontSize="9"
-                    Margin="0,0,75,8"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Bottom"
-                    Background="ForestGreen"
-                    FontFamily="Sitka Subheading"
-                    Style="{StaticResource MaterialDesignRaisedButton}" />
         </Grid>
         <Grid Grid.Row="2">
             <Grid.RowDefinitions>
@@ -135,7 +103,7 @@
                                    Width="215" />
                             <Button x:Name="btnAddCate" Margin="66 10 0 0"
                                     Command="{Binding LoadCategoryWindowCommand}"
-                                    CommandParameter="{Binding ElementName= Product}" Style="{StaticResource mainbutton}" Width="60">
+                                    Style="{StaticResource mainbutton}" Width="60">
                                 <materialDesign:PackIcon Kind="PlusCircle" />
                             </Button>
                             <ComboBox Width="280"
@@ -194,19 +162,7 @@
                              Text="{Binding TextSearch}"
                              materialDesign:HintAssist.HelperTextFontSize="16"
                              materialDesign:HintAssist.Hint="Search" />
-                    <ComboBox Width="280" Margin="10 0 80 0"
-                              x:Name="cbSearch"
-                              ItemsSource="{Binding ComboItems}"
-                              SelectedItem="{Binding SelectedItem,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                              materialDesign:HintAssist.Hint="Choose"
-                              Style="{StaticResource MaterialDesignOutlinedComboBox}">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="SelectionChanged">
-                                <i:InvokeCommandAction Command="{Binding SelectedItemChangedCommand}"
-                                                       CommandParameter="{Binding ElementName=ComboBox}" />
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </ComboBox>
+                    
                     <Button x:Name="btnSearch" Margin="5"
                             Command="{Binding SearchCommand}" Style="{StaticResource mainbutton}" Width="80" > 
                         <materialDesign:PackIcon Kind="Magnify" />
