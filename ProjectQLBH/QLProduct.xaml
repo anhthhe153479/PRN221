@@ -5,8 +5,268 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectQLBH"
         mc:Ignorable="d"
-         Height="450" Width="800">
+        Height="850"
+        Width="1100"
+        Name="Product"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        >
+
+
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1">
+            <Label Content="Product"
+                   Grid.ColumnSpan="2"
+                   FontFamily="Sitka Subheading"
+                   FontSize="22"
+                   Padding="0"
+                   FontWeight="Bold"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Center" />
+            <Button Grid.Column="1"
+                    Grid.Row="0"
+                    Height="20"
+                    Width="50"
+                    Content="IMPORT"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    FontSize="9"
+                    Padding="0"
+                    Margin="0,0,20,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Background="ForestGreen"
+                    FontFamily="Sitka Subheading"
+                    Style="{StaticResource MaterialDesignRaisedButton}">
+            </Button>
+
+
+            <Button Grid.Row="0"
+                    Height="20"
+                    Width="50"
+                    Content="EXPORT"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    Padding="0"
+                    FontSize="9"
+                    Margin="0,0,75,8"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Background="ForestGreen"
+                    FontFamily="Sitka Subheading"
+                    Style="{StaticResource MaterialDesignRaisedButton}" />
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <materialDesign:Card Grid.Row="0"
+                                 Margin="10">
+
+            </materialDesign:Card>
+
+            <materialDesign:Card Grid.Row="1"
+                                 Margin="0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0" Margin="20" >
+                        <WrapPanel>
+                            <TextBox x:Name="tbName" Width="280"
+                                     materialDesign:HintAssist.Hint="ProductName"
+                                     FontSize="15"
+                                     Background="Transparent"
+                                     FontFamily="Sitka Subheading"
+                                     FontWeight="Bold"
+                                     VerticalAlignment="Center"
+                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                            <TextBox x:Name="tbStatus" Width="280"
+                                     FontSize="15"
+                                     Background="Transparent"
+                                     FontFamily="Sitka Subheading"
+                                     FontWeight="Bold"
+                                     VerticalAlignment="Center"
+                                     materialDesign:HintAssist.Hint="Status"
+                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                            <DatePicker x:Name="dpdateAdd"
+                                        Width="280"
+                                        Height="45"
+                                        SelectedDate="{Binding DateAdd, StringFormat='MM-dd-yyyy'}"
+                                        materialDesign:HintAssist.Hint="Date Add" />
+                        </WrapPanel>
+                    </Grid>
+                    <Grid Grid.Column="1" >
+                        <WrapPanel Margin="0,5,0,-5">
+                            <TextBox x:Name="tbImage" Width="227"
+                                     IsReadOnly="True"
+                                     materialDesign:HintAssist.Hint="Image"
+                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                            <Button x:Name="btnFileImage" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" Margin="70 0 0 0" 
+                                    >
+                                <materialDesign:PackIcon Kind="Folder" />
+                            </Button>
+                            <Label FontFamily="Sitka Subheading"
+                                   FontSize="15"
+                                   Padding="10"
+                                   FontWeight="Bold"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Content="Add Category"
+                                   Height="40"
+                                   RenderTransformOrigin="0.579,1.504"
+                                   Width="215" />
+                            <Button x:Name="btnAddCate" Margin="66 10 0 0"
+                                    Command="{Binding LoadCategoryWindowCommand}"
+                                    CommandParameter="{Binding ElementName= Product}" Style="{StaticResource mainbutton}" Width="60">
+                                <materialDesign:PackIcon Kind="PlusCircle" />
+                            </Button>
+                            <ComboBox Width="280"
+                                      Height="50"
+                                      x:Name="cbCate"
+                                      DisplayMemberPath="CategoryName"
+                                      ItemsSource="{Binding ComboCategories}"
+                                      SelectedItem="{Binding SelectedCategory,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                      materialDesign:HintAssist.Hint="Category"
+                                      Style="{StaticResource MaterialDesignOutlinedComboBox}" >
+                            </ComboBox>
+
+                        </WrapPanel>
+                    </Grid>
+                    <Grid Grid.Column="2">
+                        <WrapPanel>
+
+                            <TextBox x:Name="tbImportPrice" Width="280"
+                                     Text="{Binding ImportPrice}"
+                                     FontSize="15"
+                                     Background="Transparent"
+                                     FontFamily="Sitka Subheading"
+                                     FontWeight="Bold"
+                                     VerticalAlignment="Center"
+                                     materialDesign:HintAssist.Hint="ImportPrice"
+                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                            <TextBox x:Name="tbSellPrice" Width="280"
+                                     Text="{Binding SellPrice}"
+                                     FontSize="15"
+                                     Background="Transparent"
+                                     FontFamily="Sitka Subheading"
+                                     FontWeight="Bold"
+                                     VerticalAlignment="Center"
+                                     materialDesign:HintAssist.Hint="SellPrice"
+                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                            <TextBox x:Name="tbTonKho" Width="280"
+                                     FontSize="15"
+                                     Background="Transparent"
+                                     FontFamily="Sitka Subheading"
+                                     FontWeight="Bold"
+                                     VerticalAlignment="Center"
+                                     Text="{Binding NumberOfInventoty}"
+                                     materialDesign:HintAssist.Hint="NumberOfInventoty"
+                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                        </WrapPanel>
+                    </Grid>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Grid.Row="2"
+                                 Margin="0">
+
+                <WrapPanel>
+                    <TextBox x:Name="tbSearch" Margin="10 0 55 0"
+                             Width="290"
+                             Text="{Binding TextSearch}"
+                             materialDesign:HintAssist.HelperTextFontSize="16"
+                             materialDesign:HintAssist.Hint="Search" />
+                    <ComboBox Width="280" Margin="10 0 80 0"
+                              x:Name="cbSearch"
+                              ItemsSource="{Binding ComboItems}"
+                              SelectedItem="{Binding SelectedItem,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                              materialDesign:HintAssist.Hint="Choose"
+                              Style="{StaticResource MaterialDesignOutlinedComboBox}">
+                    </ComboBox>
+                    <Button x:Name="btnSearch" Margin="5"
+                            Command="{Binding SearchCommand}" Style="{StaticResource mainbutton}" Width="80" Click="ButtonSearch_Click"> 
+                        <materialDesign:PackIcon Kind="Magnify" />
+                    </Button>
+                    <Button x:Name="btnAdd" Content="Add"
+                            Command="{Binding AddCommand}" Style="{StaticResource mainbutton}" Width="80"
+                            Margin="5" Click="btnAdd_Click"></Button>
+                    <Button x:Name="btnDelete" Content="Delete"
+                            Command="{Binding DeleteCommand}" Style="{StaticResource mainbutton}" Width="80"
+                            Margin="5" Click="btnDelete_Click"></Button>
+                    <Button x:Name="btnUpdate" Content="Update"
+                            Command="{Binding UpdateCommand}" Style="{StaticResource mainbutton}" Width="80"
+                            Margin="5" Click="btnUpdate_Click"></Button>
+
+                </WrapPanel>
+            </materialDesign:Card>
+
+            <materialDesign:Card Grid.Row="3"
+                                 Margin="0"
+                                 VerticalAlignment="Center">
+                <ListView x:Name="ProductListView" SelectedItem="ListView_SelectedItem" SelectionChanged="lvContent_SelectionChanged" 
+                          Width="Auto"
+                          Height="500"
+                          >
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment"
+                                    Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="ProductId"
+                                            Width="auto"
+                                            DisplayMemberBinding="{Binding ProductId}"></GridViewColumn>
+                            <GridViewColumn Header="ProductName"
+                                            Width="auto"
+                                            DisplayMemberBinding="{Binding ProductName}"></GridViewColumn>
+                            <GridViewColumn Header="ImportPrice"
+                                            Width="auto"
+                                            DisplayMemberBinding="{Binding ImportPrice}"></GridViewColumn>
+                            <GridViewColumn Header="SellPrice"
+                                            Width="auto"
+                                            DisplayMemberBinding="{Binding SellPrice}"></GridViewColumn>
+                            <GridViewColumn Header="NumberOfInventoty"
+                                            Width="auto"
+                                            DisplayMemberBinding="{Binding NumberOfInventoty}"></GridViewColumn>
+                            <GridViewColumn Header="DateAdd"
+                                            Width="auto"
+                                            DisplayMemberBinding="{Binding DateAdd,StringFormat='MM-dd-yyyy'}"></GridViewColumn>
+                            <GridViewColumn Header="Image">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Width="50"
+                                               Height="50"
+                                               Source="{Binding Image}" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Status"
+                                            Width="auto"
+                                            DisplayMemberBinding="{Binding Status}"></GridViewColumn>
+                            <GridViewColumn Header="CategoryName"
+                                            Width="auto"
+                                            DisplayMemberBinding="{Binding Category.CategoryName}">
+                            </GridViewColumn>
+
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </materialDesign:Card>
+        </Grid>
     </Grid>
 </UserControl>
+    

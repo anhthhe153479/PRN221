@@ -117,7 +117,7 @@
 
             <!--main section-->
             <Grid Grid.Column="1" Background="#F6F5F8" Name="RenderPages" Height="930" Width="1330"  >
-                <Grid.RowDefinitions>
+                <!--<Grid.RowDefinitions>
                     <RowDefinition Height="40"></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
@@ -131,9 +131,15 @@
                             Margin="0 5 5 0" Click="Button_Click_7" ></Button>
                 </Grid>
                 <Grid Grid.Row="1">
+                    <Grid>
+                        <ContentControl x:Name="RenderPages1" Margin="0 0 10 10"/>
+                    </Grid>
+                </Grid>-->
+
+                <Grid>
                     <ContentControl x:Name="RenderPages1" Margin="0 0 10 10"/>
                 </Grid>
-                
+
             </Grid>
         </Grid>
     </Border>

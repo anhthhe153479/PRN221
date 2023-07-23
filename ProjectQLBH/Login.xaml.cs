@@ -1,6 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using Core.IRepository;
+using Core.Repository;
 using MaterialDesignThemes.Wpf;
 
 namespace ProjectQLBH
@@ -10,6 +12,7 @@ namespace ProjectQLBH
     /// </summary>
     public partial class Login : Window
     {
+        IUserRepository managerRepository;
         public Login()
         {
             InitializeComponent();
@@ -17,7 +20,7 @@ namespace ProjectQLBH
 
         private void Button_Click1(object sender, RoutedEventArgs e)
         {
-            SignUp signUp= new SignUp();
+            SignUp signUp = new SignUp();
             signUp.Show();
             this.Hide();
         }
@@ -58,9 +61,24 @@ namespace ProjectQLBH
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtEmail.Text) && !string.IsNullOrEmpty(txtPassword.Password))
+            managerRepository = new UserRepository();
+            var user = managerRepository.GetUserByName(txtEmail.Text);
+
+            if (user != null)
+            {   if (user.Password.Equals(txtPassword.Password))
+                {
+                    MainWindow signUp = new MainWindow();
+                    signUp.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Password is wrong!");
+                }
+            }
+            else
             {
-                MessageBox.Show("Successfully Signed In!");
+                MessageBox.Show("User is wrong!");
             }
         }
 
