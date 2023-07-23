@@ -27,9 +27,6 @@ namespace Core.Management
 
             }
         }
-
-
-
         public List<Event> GetEventList()
         {
             List<Event> events;
@@ -79,7 +76,7 @@ namespace Core.Management
                     }
                 }
                 catch (Exception ex)
-                {
+                {   
                     throw new Exception(ex.Message);
                 }
             }

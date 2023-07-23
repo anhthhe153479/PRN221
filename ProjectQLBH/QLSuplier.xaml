@@ -32,12 +32,12 @@
                HorizontalAlignment="Center"/>
 
         <!--Danh sách sự kiện-->
-        <ListView Name="listEvent" Grid.Row="1" Grid.ColumnSpan="2"  ItemsSource="{Binding ListEvent}" SelectedItem="{Binding EventItem,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+        <ListView Name="listEvent" Grid.ColumnSpan="2"  ItemsSource="{Binding ListEvent}" SelectedItem="{Binding EventItem,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                   FontFamily="Sitka Subheading"
                   FontSize="13"
-                  Margin="8,0,0,0"
+                  Margin="200,73,0,220"
                   Foreground="Black"
-                  HorizontalAlignment="Left"
+                  HorizontalAlignment="Left" Grid.RowSpan="3"
                   >
 
             <!--Nếu dài quá thì hiển thị...-->
@@ -47,7 +47,7 @@
                     <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=Text}"/>
                 </Style>
                 <Style TargetType="{x:Type ScrollBar}">
-                    <Setter Property="Margin" Value="2,50,0,8" />
+                    <Setter Property="Margin" Value="2,90,0,8" />
                     <Setter Property="Stylus.IsFlicksEnabled" Value="false" />
                     <Setter Property="Background" Value="Transparent" />
                     <Setter Property="Template">
@@ -76,7 +76,7 @@
                     <!--Cột Ngày bắt đầu-->
                     <GridViewColumn
                         Width="155"
-                        DisplayMemberBinding="{Binding DateBegin}">
+                        DisplayMemberBinding="{Binding DateBegin,StringFormat='MM-dd-yyyy'}">
                         <GridViewColumn.HeaderTemplate>
                             <DataTemplate>
                                 <Border>
@@ -99,7 +99,7 @@
                     <!--Cột Ngày kết thúc-->
                     <GridViewColumn
                         Width="155"
-                        DisplayMemberBinding="{Binding DateEnd}">
+                        DisplayMemberBinding="{Binding DateEnd,StringFormat='MM-dd-yyyy'}">
                         <GridViewColumn.HeaderTemplate>
                             <DataTemplate>
                                 <Border>
@@ -157,52 +157,6 @@
                                             BlurRadius="5"/>
                                     </Border.Effect>
                                     <Label Content="Giảm giá"
-                                       Padding="1"
-                                       FontSize="15"
-                                       Foreground="Black"
-                                       FontWeight="Bold"/>
-                                </Border>
-                            </DataTemplate>
-                        </GridViewColumn.HeaderTemplate>
-                    </GridViewColumn>
-                    <!--Cột Mua-->
-                    <GridViewColumn
-                        Width="65"
-                        DisplayMemberBinding="{Binding BuyGet_Buy}">
-                        <GridViewColumn.HeaderTemplate>
-                            <DataTemplate>
-                                <Border>
-                                    <Border.Effect>
-                                        <DropShadowEffect
-                                            Color="White"
-                                            Direction="270"
-                                            ShadowDepth="1"
-                                            BlurRadius="5"/>
-                                    </Border.Effect>
-                                    <Label Content="Mua"
-                                       Padding="1"
-                                       FontSize="15"
-                                       Foreground="Black"
-                                       FontWeight="Bold"/>
-                                </Border>
-                            </DataTemplate>
-                        </GridViewColumn.HeaderTemplate>
-                    </GridViewColumn>
-                    <!--Cột Tặng-->
-                    <GridViewColumn
-                        Width="70"
-                        DisplayMemberBinding="{Binding BuyGet_Get}">
-                        <GridViewColumn.HeaderTemplate>
-                            <DataTemplate>
-                                <Border>
-                                    <Border.Effect>
-                                        <DropShadowEffect
-                                            Color="White"
-                                            Direction="270"
-                                            ShadowDepth="1"
-                                            BlurRadius="5"/>
-                                    </Border.Effect>
-                                    <Label Content="Tặng"
                                        Padding="1"
                                        FontSize="15"
                                        Foreground="Black"
