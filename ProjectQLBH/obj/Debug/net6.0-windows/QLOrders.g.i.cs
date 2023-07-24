@@ -77,7 +77,7 @@ namespace ProjectQLBH {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ProjectQLBH;V1.0.0.0;component/qlorders.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ProjectQLBH;component/qlorders.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\QLOrders.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

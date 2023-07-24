@@ -85,7 +85,7 @@ namespace ProjectQLBH {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ProjectQLBH;V1.0.0.0;component/categorywindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ProjectQLBH;component/categorywindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\CategoryWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

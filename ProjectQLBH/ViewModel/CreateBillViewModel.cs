@@ -16,10 +16,8 @@ namespace ProjectQLBH.ViewModel
     {
         public ICommand ListOrderCommand { get; set; }
         public ICommand EventManage { get; set; }
-
         IBillRepository billRepository { get; set; }
         IEventRepository eventRepository;
-
         private IEnumerable<Event> _listEvent;
         public IEnumerable<Event> ListEvent { get { return _listEvent; } set { _listEvent = value; OnPropertyChanged(); } }
 
@@ -164,8 +162,6 @@ namespace ProjectQLBH.ViewModel
                     {
                         billRepository = new BillRepository();
                         billRepository.AddBill(bill);
-                        //ListOrdersWindow listOrder = new ListOrdersWindow();
-                        //listOrder.ShowDialog();
                     }
             });
 

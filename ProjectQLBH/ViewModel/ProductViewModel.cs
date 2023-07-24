@@ -131,15 +131,12 @@ namespace ProjectQLBH.ViewModel
 
         public ProductViewModel()
         {
-
             LoadCategoryWindowCommand = new ReplayCommand<Window>((p) => { return true; }, (p) =>
             {
                 CategoryWindow listOrder = new CategoryWindow();
                 listOrder.Show();
             });
-
             categoryRepository = new CategoryRepository();
-            ComboItems = new ObservableCollection<string>() { "ImportPrice", "SellPrice", "Number", "Best seller", "New product" };
             ComboCategories = categoryRepository.GetCategories();
             productRepository = new ProductRepository();
             Products = productRepository.GetProducts();
@@ -194,7 +191,6 @@ namespace ProjectQLBH.ViewModel
                     }
                     return true;
                 },
-
                 (p) =>
                 {
                     if (ProductName == null || ImportPrice == null || SellPrice == null || NumberOfInventoty == null || DateAdd == null || Status == null)
@@ -203,7 +199,6 @@ namespace ProjectQLBH.ViewModel
                     }
                     else
                     {
-
                         var update = productRepository.GetProductById(Product.ProductId);
 
                         update.ProductName = ProductName;
@@ -236,7 +231,6 @@ namespace ProjectQLBH.ViewModel
                     }
                     return true;
                 },
-
                 (p) =>
                 {
                     var delete = productRepository.GetProductById(Product.ProductId);
@@ -248,118 +242,6 @@ namespace ProjectQLBH.ViewModel
 
 
                 });
-            ExportExcelCommand = new ReplayCommand<Object>((p) => { return true; }, (p) =>
-            {
-                string fileName = "Products.xlsx";
-                using (SpreadsheetDocument document = SpreadsheetDocument.Create(fileName, SpreadsheetDocumentType.Workbook))
-                {
-                    WorkbookPart workbookPart = document.AddWorkbookPart();
-                    workbookPart.Workbook = new Workbook();
-
-                    WorksheetPart worksheetPart = workbookPart.AddNewPart<WorksheetPart>();
-                    worksheetPart.Worksheet = new Worksheet(new SheetData());
-
-                    Sheets sheets = workbookPart.Workbook.AppendChild(new Sheets());
-                    Sheet sheet = new Sheet() { Id = workbookPart.GetIdOfPart(worksheetPart), SheetId = 1, Name = "Products" };
-                    sheets.Append(sheet);
-
-                    // Create column headers in the worksheet
-                    SheetData sheetData = worksheetPart.Worksheet.GetFirstChild<SheetData>();
-                    Row headerRow = new Row();
-                    headerRow.AppendChild(CreateCell("ProductId"));
-                    headerRow.AppendChild(CreateCell("ProductName"));
-                    headerRow.AppendChild(CreateCell("ImportPrice"));
-                    headerRow.AppendChild(CreateCell("SellPrice"));
-                    headerRow.AppendChild(CreateCell("NumberOfInventoty"));
-                    headerRow.AppendChild(CreateCell("DateAdd"));
-                    headerRow.AppendChild(CreateCell("Image"));
-                    headerRow.AppendChild(CreateCell("Status"));
-                    headerRow.AppendChild(CreateCell("CategoryId"));
-
-                    sheetData.AppendChild(headerRow);
-
-                    // Write product data to the worksheet
-                    foreach (Product product in Products)
-                    {
-                        Row dataRow = new Row();
-                        dataRow.AppendChild(CreateCell(product.ProductId.ToString()));
-                        dataRow.AppendChild(CreateCell(product.ProductName));
-                        dataRow.AppendChild(CreateCell(product.ImportPrice.ToString()));
-                        dataRow.AppendChild(CreateCell(product.SellPrice.ToString()));
-                        dataRow.AppendChild(CreateCell(product.NumberOfInventoty.ToString()));
-                        dataRow.AppendChild(CreateCell(product.DateAdd.ToString()));
-                        dataRow.AppendChild(CreateCell(product.Image.ToString()));
-                        dataRow.AppendChild(CreateCell(product.Status.ToString()));
-                        dataRow.AppendChild(CreateCell(product.CategoryId.ToString()));
-
-
-                        sheetData.AppendChild(dataRow);
-                    }
-
-                    worksheetPart.Worksheet.Save();
-                    MessageBox.Show("Save successful");
-                }
-            });
-            ImportExcelCommand = new ReplayCommand<Object>((p) => { return true; }, (p) =>
-            {
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-                openFileDialog.Filter = "Image files (*.xlsx)|*.xlsx";
-                if (openFileDialog.ShowDialog() == true)
-                {
-                    // Lưu đường dẫn của tệp hình ảnh được chọn vào thuộc tính string
-
-                    using (SpreadsheetDocument doc = SpreadsheetDocument.Open(openFileDialog.FileName, false))
-                    {
-                        // Lấy sheet đầu tiên
-                        Worksheet worksheet = doc.WorkbookPart.WorksheetParts.First().Worksheet;
-
-                        // Lấy danh sách các row
-                        IEnumerable<Row> rows = worksheet.GetFirstChild<SheetData>().Descendants<Row>();
-                        int count = 0;
-                        foreach (Row row in rows)
-                        {
-                            if (count == 0)
-                            {
-                                count++;
-                            }
-                            else
-                            {
-                                // Lấy giá trị của các cell
-                                //int id = int.Parse(GetCellValue(doc, row.Descendants<Cell>().ElementAt(0)));
-                                string name = GetCellValue(doc, row.Descendants<Cell>().ElementAt(1));
-                                decimal importPrice = decimal.Parse(GetCellValue(doc, row.Descendants<Cell>().ElementAt(2)));
-                                decimal sellPrice = decimal.Parse(GetCellValue(doc, row.Descendants<Cell>().ElementAt(3)));
-                                int numberOfInventoty = int.Parse(GetCellValue(doc, row.Descendants<Cell>().ElementAt(4)));
-                                DateTime DateAdd = DateTime.Parse(GetCellValue(doc, row.Descendants<Cell>().ElementAt(5)));
-                                string image = GetCellValue(doc, row.Descendants<Cell>().ElementAt(6));
-                                string status = GetCellValue(doc, row.Descendants<Cell>().ElementAt(7));
-                                int categoryId = int.Parse(GetCellValue(doc, row.Descendants<Cell>().ElementAt(8)));
-
-                                var product = new Product()
-                                {
-                                    ProductName = name,
-                                    ImportPrice = importPrice,
-                                    SellPrice = sellPrice,
-                                    NumberOfInventoty = numberOfInventoty,
-                                    DateAdd = dateAdd,
-                                    Image = image,
-                                    Status = status,
-                                    CategoryId = categoryId,
-                                };
-
-
-                                // Tạo sản phẩm mới và thêm vào danh sách
-                                productRepository.InsertProduct(product);
-                                Products = productRepository.GetProducts();
-                                MessageBox.Show("Import successful");
-                            }
-
-                        }
-                    }
-                }
-
-            });
-
             SearchCommand = new ReplayCommand<Object>((p) => { return true; }, (p) =>
             {
                 if (TextSearch == null)
@@ -372,10 +254,6 @@ namespace ProjectQLBH.ViewModel
 
                 }
             });
-            //LoatCategoryCommand = new ReplayCommand<ComboBox>((p) => { return true; }, (p) =>
-            //{
-            //    p.ItemsSource = categoryRepository.GetCategories();
-            //});
             ChooseFileCommand = new ReplayCommand<Object>((p) => { return true; }, (p) =>
             {
                 OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -388,40 +266,6 @@ namespace ProjectQLBH.ViewModel
                     Image = openFileDialog.FileName;
                 }
             });
-            BackHomeCommand = new ReplayCommand<Window>((p) => { return true; }, (p) =>
-            {
-                p.Close();
-                MainWindow mainWindown = new MainWindow();
-                var maintVM = mainWindown.DataContext as MainViewModel;
-                mainWindown.ShowDialog();
-            });
-
         }
-
-        private Cell CreateCell(string value)
-        {
-            //if (value == null)
-            //{
-               return new Cell(new InlineString(""));
-
-            //}
-            //return new Cell(new InlineString(new Text(value)));
-        }
-        private static string GetCellValue(SpreadsheetDocument document, Cell cell)
-        {
-            SharedStringTablePart stringTablePart = document.WorkbookPart.SharedStringTablePart;
-            if (cell.CellValue == null)
-            {
-                return "";
-            }
-
-            string value = cell.CellValue.InnerText;
-            if (cell.DataType != null && cell.DataType.Value == CellValues.SharedString)
-            {
-                return stringTablePart.SharedStringTable.ChildElements[int.Parse(value)].InnerText;
-            }
-            return value;
-        }
-
     }
 }

@@ -120,7 +120,7 @@ namespace ProjectQLBH {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ProjectQLBH;V1.0.0.0;component/qlsuplier.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ProjectQLBH;component/qlsuplier.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\QLSuplier.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

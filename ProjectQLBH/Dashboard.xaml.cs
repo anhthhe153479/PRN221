@@ -25,13 +25,13 @@ namespace ProjectQLBH
             {
                 new StackedColumnSeries
                 {
-                    Values = new ChartValues<double> {25,52,61,89},
+                    Values = new ChartValues<double> {12,52,81,63},
                     StackMode = StackMode.Values,
                     DataLabels = true
                 },
                  new StackedColumnSeries
                 {
-                    Values = new ChartValues<double> {-15,-75,-16,-49},
+                    Values = new ChartValues<double> {-18,-35,-20,-19},
                     StackMode = StackMode.Values,
                     DataLabels = true
                 }
@@ -76,14 +76,11 @@ namespace ProjectQLBH
                     }
                 }
             };
-            Labels = new[] { "Feb 7", "Feb 8", "Feb 9", "Feb 10" };
+            Labels = new[] { "Thang 4", "Thang 5", "Thang 6", "Thang 7" };
             Formatter = value => value.ToString();
             DataContext = this;
             string imgCartoon = $"{Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.ToString()}\\Images\\cartoon-woman-pretty.png";
-            //string imgavatar = $"{Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.ToString()}\\Images\\avatar1.jpg";
             ImgCartoon.Source = new BitmapImage(new Uri(imgCartoon));
-            //avatar1.Source = new BitmapImage(new Uri(imgavatar));
-            //avatar2.Source = new BitmapImage(new Uri(imgavatar));
         }
     }
 }

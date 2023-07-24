@@ -14,7 +14,6 @@ namespace ProjectQLBH.ViewModel
 {
     public class ListOrderViewModel : BaseViewModel
     {
-
         IBillRepository billRepository;
 
         private IEnumerable<Bill> listbills;
@@ -63,8 +62,6 @@ namespace ProjectQLBH.ViewModel
         public ICommand Createcommand { get; set; }
         public ICommand Cancelcommand { get; set; }
         public ICommand SelectedItemChangedCommand { get; set; }
-
-
 
         private Bill _SelectedItem;
 

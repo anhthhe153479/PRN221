@@ -174,8 +174,6 @@ namespace ProjectQLBH.ViewModel
             });
 
         }
-
-
     }
 
 }
